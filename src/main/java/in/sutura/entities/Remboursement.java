@@ -33,7 +33,7 @@ public class Remboursement {
     
     @ManyToOne
    	@JoinColumn(name="CODE_CAISSE")
-   	private Caisse caisses;
+   	private Caisse caisse;
 	
     @OneToOne( cascade = CascadeType.ALL ) 
     @JoinColumn( name="T_Justificatif" )
@@ -112,11 +112,11 @@ public class Remboursement {
 	}
 
 	public Caisse getCaisses() {
-		return caisses;
+		return caisse;
 	}
 
 	public void setCaisses(Caisse caisses) {
-		this.caisses = caisses;
+		this.caisse = caisses;
 	}
 
 	public Justificatif getJustificatif() {

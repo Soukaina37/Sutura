@@ -31,7 +31,7 @@ public class Don {
     private Justificatif justificatif;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="T_Donateur" )
+    @JoinColumn( name="Donateur" )
     private Donateur donateur ;
 
 	public Long getId() {

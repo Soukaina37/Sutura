@@ -36,7 +36,7 @@ public class Cotisation {
 	
 	@ManyToOne
    	@JoinColumn(name="CODE_CAISSE")
-   	private Caisse caisses;
+   	private Caisse caisse;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
     @JoinColumn( name="T_Justificatif" )
@@ -106,12 +106,12 @@ public class Cotisation {
 		this.administrateur = administrateur;
 	}
 
-	public Caisse getCaisses() {
-		return caisses;
+	public Caisse getCaisse() {
+		return caisse;
 	}
 
 	public void setCaisses(Caisse caisses) {
-		this.caisses = caisses;
+		this.caisse = caisses;
 	}
 
 	public Justificatif getJustificatif() {

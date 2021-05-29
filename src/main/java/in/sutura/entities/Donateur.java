@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity @Table(name = "T_Donateur")
+@Entity @Table(name = "Donateur")
 public class Donateur extends Personne {
 
 	private static final long serialVersionUID = 1L;
@@ -23,6 +23,5 @@ public class Donateur extends Personne {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
 	
 }

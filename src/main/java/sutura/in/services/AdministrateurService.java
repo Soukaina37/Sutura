@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import in.sutura.entities.Administrateur;
 import in.sutura.entities.Personne;
+import in.sutura.repositories.AdministrateurRepository;
 
 public interface AdministrateurService {
 
@@ -15,6 +16,8 @@ public interface AdministrateurService {
     long countAdministrateurs();
 
     void deleteAdministrateur(Long id);
+    
+    void setAdministrateurRepository(AdministrateurRepository administrateurRepository);
 
 }
 
