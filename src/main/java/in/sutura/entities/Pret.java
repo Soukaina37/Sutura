@@ -45,7 +45,7 @@ public class Pret {
 	private Caisse caisse;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="T_Justificatif" )
+    @JoinColumn( name="Justificatif" )
     private Justificatif justificatif;
 
 	public Long getId() {

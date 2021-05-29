@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import com.sun.istack.NotNull;
-
 @Entity
 public class Cotisation {
 	
@@ -39,7 +37,7 @@ public class Cotisation {
    	private Caisse caisse;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="T_Justificatif" )
+    @JoinColumn( name="Justificatif" )
     private Justificatif justificatif;
 
 	public Long getId() {

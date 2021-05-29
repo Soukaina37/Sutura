@@ -27,7 +27,7 @@ public class Don {
 	private Caisse caisse;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="T_Justificatif" )
+    @JoinColumn( name="Justificatif" )
     private Justificatif justificatif;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 

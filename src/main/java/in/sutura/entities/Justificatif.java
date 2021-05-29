@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name = "T_Justificatif")
+@Entity @Table(name = "Justificatif")
 public class Justificatif {
 	@Id  @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
