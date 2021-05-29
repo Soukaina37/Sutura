@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Spring Boot Exemple</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+		<h2>Remboursement Details</h2>
+		<div>
+
+
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Remboursement Id:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.id}">Remboursement
+							Id</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Date:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.date}">Date</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Etudiant:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static"
+							th:text="${remboursement.id_etudiant}">Id Etudiant</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Montant:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.montant}">Montant</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Periode:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.periode}">Periode</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Statut:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.statut}">Statut</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Type:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${remboursement.type}">Type</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

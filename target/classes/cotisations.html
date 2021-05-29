@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Liste des cotisations</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div th:if="${not #lists.isEmpty(cotisations)}">
+			<h2>Liste des cotisations</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Approuve</th>
+					<th>Date</th>
+
+					<th>Montant</th>
+					<th>Expiration</th>
+					<th>Id Etudiant</th>
+					<th>Periode</th>
+
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="cotisation : ${cotisations}">
+					<td th:text="${cotisation.id}"><a
+						href="/cotisation/${cotisation.id}">Id</a></td>
+					<td th:text="${cotisation.approved}">Approuve</td>
+					<td th:text="${cotisation.date}">Date</td>
+					<td th:text="${cotisation.montant}">Montant</td>
+					<td th:text="${cotisation.expiration}">Expiration</td>
+					<td th:text="${cotisation.id_etudiant}">Id Etudiant</td>
+					<td th:text="${cotisation.periode}">Periode</td>
+
+
+
+
+					<td><a th:href="${ '/cotisation/' + cotisation.id}">View</a></td>
+					<td><a th:href="${'/cotisation/edit/' + cotisation.id}">Edit</a></td>
+					<td><a th:href="${'/cotisation/delete/' + cotisation.id}">Delete</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

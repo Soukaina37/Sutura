@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Creer un remboursement</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+		<h2>Details sur le remboursement</h2>
+		<div>
+			<form class="form-horizontal" th:object="${remboursement}"
+				th:action="@{/remboursement}" method="post">
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Id:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Etudiant:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id_etudiant}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Montant:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{montant}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Periode:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{periode}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Statut:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{statut}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Type:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{type}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Date:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{date}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nombre de tranches:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombre_de_tranches}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Justificatif:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{justificatif}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Caisse:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id_caisse}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Prêt:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id_pret}" />
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-default">Soumettre</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Details sur l'administrateur</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+		<h2>Details sur l'administrateur</h2>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Administrateur Id:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${administrateur.id}">Administrateur
+							Id</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Poste:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${administrateur.poste}">Approved</p>
+					</div>
+				</div>
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Photo:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${administrateur.photo}">Approved</p>
+					</div>
+				</div>
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Description:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${administrateur.description}">Approved</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

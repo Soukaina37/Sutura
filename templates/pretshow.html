@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Spring Boot Exemple</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+		<h2>Pret Details</h2>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Pret Id:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.id}">Pret Id</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Etudiant:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.id_etudiant}">Id
+							Etudiant</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Montant:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.montant}">Montant</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Commentaire:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.commentaire}">Commentaire</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Date:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.date}">Date</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Echeance:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.echeance}">Echeance</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Etat:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.etat}">Etat</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Etat Remboursement:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static"
+							th:text="${pret.etat_remboursement}">Remboursement</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Modification:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.modification}">Modification</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Montant:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.montant}">Montant</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Periode:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.periode}">Periode</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Priorité:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.priorite}">Priorité</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Raison:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.raison}">Raison</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">RIB:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.RIB}">RIB</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
