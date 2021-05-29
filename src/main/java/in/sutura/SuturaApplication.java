@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"com.delivery.request"})
-@EntityScan("com.delivery.domain")
-@EnableJpaRepositories("com.delivery.repository")
+@ComponentScan({"in.sutura.request"})
+@EntityScan("in.sutura.entities")
+@EnableJpaRepositories("in.sutura.repositories")
 public class SuturaApplication {
 
 	public static void main(String[] args) {
