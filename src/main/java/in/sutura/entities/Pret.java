@@ -1,32 +1,32 @@
 package in.sutura.entities;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Pret {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date dateDemande;
+	private Date dateDemande;//de la création de l'objet
 	private String raison;//liste déroulante (santé, alimentations, loyer, transport, autres)
 	private Boolean statutTraitement;
 	private String etat;//nouveau,prêt,bloqué,permuté, élu, terminé
 	private double montant;
-	private Date date;//de la création de l'objet
 	private int periode;//correspond à l'année de la création de l'objet
 	private double priorite; //=0 si l'état est nouveau et sera modifiée après le premier calcul de la priorité
 	private boolean etatRemboursement;//par défaut false, et quand on crée un objet remboursement la valeur devient true
 	private Date dateTraitement;
-	private int idJustificatif;
-	private String justificatifPretAccorde;
 	private Long RIB;
 	private Date echeance;//date laquelle l'étudiant prévoit de rembourser
 	private Date dateModification;//initialisé dès la création de l'objet
@@ -44,9 +44,36 @@ public class Pret {
 	@JoinColumn(name="CODE_CAISSE")
 	private Caisse caisse;
 	
+	@OneToMany(mappedBy="pret",fetch = FetchType.LAZY)
+	private Collection <Remboursement> remboursements;
+	
 	@OneToOne( cascade = CascadeType.ALL ) 
     @JoinColumn( name="Justificatif" )
     private Justificatif justificatif;
+	
+	/*
+	 * pour l'attribut justificatifPretAccorde, on ne peut pas faire le mapping dans
+	 * la même entité (Justificatif) que l'attribut justificatif
+	 * pour garder l'attribut justificatifPretAccorde, la solution est de changer la 
+	 * cardinalité de l'entité Pret vers l'entité Justificatif
+	 * ce qui veut dire que Pret peut avoir jusqu'à deux attributs de types justificatif
+	 * l'autre idée est d'avoir une autre entité JustificatifPretAccorde qui hérite de 
+	 * Justificatif
+	 * et ainsi avoir le discriminationValue
+	 * A FAIRE PLUS TARD
+	 * POUR L'INSTANT ON TRAVAILLE SANS justificatifPretAccorde
+	 * */
+	
+	 /*
+	  * Pour la première version, on ne s'intéressera pas aux fichiers de justificatif
+	  * Pour la version suivante, nous aurons quelque chose comme ceci:
+	  * @OneToOne( cascade = CascadeType.ALL ) 
+	  * @JoinColumn( name="Justificatif" )
+	  * private Justificatif collection<Justificatif> justificatifs;
+	  * Dans pretform, on aura la possibilité d'avoir un justificatif pour le demandeur
+	  * dans pretshow, on aura la possibilité d'ajour justificatifPretAccorde pour un administrateur
+	  * 
+	  */
 
 	public Long getId() {
 		return id;
@@ -96,14 +123,6 @@ public class Pret {
 		this.montant = montant;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public int getPeriode() {
 		return periode;
 	}
@@ -134,22 +153,6 @@ public class Pret {
 
 	public void setDateTraitement(Date dateTraitement) {
 		this.dateTraitement = dateTraitement;
-	}
-
-	public int getIdJustificatif() {
-		return idJustificatif;
-	}
-
-	public void setIdJustificatif(int idJustificatif) {
-		this.idJustificatif = idJustificatif;
-	}
-
-	public String getJustificatifPretAccorde() {
-		return justificatifPretAccorde;
-	}
-
-	public void setJustificatifPretAccorde(String justificatifPretAccorde) {
-		this.justificatifPretAccorde = justificatifPretAccorde;
 	}
 
 	public Long getRIB() {
@@ -215,7 +218,5 @@ public class Pret {
 	public void setJustificatif(Justificatif justificatif) {
 		this.justificatif = justificatif;
 	}
-	
-	
 	
 }

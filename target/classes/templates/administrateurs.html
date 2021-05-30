@@ -13,10 +13,19 @@
 			<h2>Liste des administrateurs</h2>
 			<table class="table table-striped">
 				<tr>
-					<th>Id</th>
-					<th>Poste</th>
-					<th>Photo</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Date d'inscription</th>
+					<th>Etablissement</th>
+					<th>Filière</th>
+					<th>Nombre d'années au Maroc</th>
+					<th>Numéro de téléphone</th>
+					<th>Pays</th>
+					<th>Genre</th>
+					<th>Ville</th>
 					<th>Description</th>
+					<th>Photo</th>
+					<th>Poste</th>
 					
 
 					<th>View</th>
@@ -24,14 +33,20 @@
 					<th>Delete</th>
 				</tr>
 				<tr th:each="administrateur : ${administrateurs}">
-					<td th:text="${administrateur.id}"><a
-						href="/administrateur/${administrateur.id}">Id</a></td>
+					<td th:text="${administrateur.nom}">Nom</td>
+					<td th:text="${administrateur.prenom}">Prénom</td>
+					<td th:text="${administrateur.dateInscription}">Date d'inscription</td>
+					<td th:text="${administrateur.etablissement}">Etablissement</td>
+					<td th:text="${administrateur.filiere}">Filière</td>
+					<td th:text="${administrateur.nbAnneeMaroc}">Nombre d'années au Maroc</td>
+					<td th:text="${administrateur.telephone}">Téléphone</td>
+					<td th:text="${administrateur.paysOrigine}">Pays</td>
+					<td th:text="${administrateur.sexe}">Genre</td>
+					<td th:text="${administrateur.ville}">Ville</td>
 					<td th:text="${administrateur.poste}">Poste</td>
 					<td th:text="${administrateur.photo}">Photo</td>
 					<td th:text="${administrateur.decription}">Description</td>
 	
-
-
 					<td><a th:href="${ '/administrateur/' + administrateur.id}">View</a></td>
 					<td><a th:href="${'/administrateur/edit/' + administrateur.id}">Edit</a></td>
 					<td><a th:href="${'/administrateur/delete/' + administrateur.id}">Delete</a></td>

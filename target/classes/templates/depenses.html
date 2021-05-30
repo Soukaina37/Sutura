@@ -13,19 +13,24 @@
 			<h2>Liste des depenses</h2>
 			<table class="table table-striped">
 				<tr>
-					<th>Id</th>
-					<th>Id Admin</th>
-					<th>Montant</th>
+					<th>Date</th>
 					<th>Description</th>
+					<th>Nom Admin</th>
+					<th>Montant</th>
+					<th>Code Caisse</th>
+					<th>Justificatif</th>
 					<th>View</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
 				<tr th:each="depense : ${depenses}">
 					<td th:text="${depense.id}"><a href="/depense/${depense.id}">Id</a></td>
-					<td th:text="${depense.id_admin}">Id Admin</td>
+					<td th:text="${depense.date}">Date</td>
+					<td th:text="${depense.description">Description</td>
+					<td th:text="${depense.codeAdmin}">Code Admin</td>
 					<td th:text="${depense.montant}">Montant</td>
-					<td th:text="${depense.description}">Description</td>
+					<td th:text="${depense.codeCaisse}">Code Caisse</td>
+					<td th:text="${depense.justificatif}">Justificatif</td>
 
 					<td><a th:href="${ '/depense/' + depense.id}">View</a></td>
 					<td><a th:href="${'/depense/edit/' + depense.id}">Edit</a></td>

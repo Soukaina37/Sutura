@@ -18,6 +18,9 @@
 					<th>Bienfaiteur</th>
 					<th>Montant</th>
 					<th>Date</th>
+					<th>Code Admin</th>
+					<th>Code Caisse</th>
+					<th>Justificatif</th>
 
 					<th>View</th>
 					<th>Edit</th>
@@ -26,9 +29,12 @@
 				<tr th:each="don : ${dons}">
 					<td th:text="${don.id}"><a href="/don/${don.id}">Id</a></td>
 					<td th:text="${don.id_admin}">Id Admin</td>
-					<td th:text="${don.bienfaiteur}">Bienfaiteur</td>
+					<td th:text="${don.donateur}">Bienfaiteur</td>
 					<td th:text="${don.montant}">Montant</td>
 					<td th:text="${don.date}">Date</td>
+					<td th:text="${don.CODE_ADMIN}">Code Admin</td>
+					<td th:text="${don.CODE_CAISSE}">Code Caisse</td>
+					<td th:text="${don.justificatif}">Justificatif</td>
 
 
 					<td><a th:href="${ '/don/' + don.id}">View</a></td>

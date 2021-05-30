@@ -20,6 +20,11 @@
 					<th>Statut</th>
 					<th>Type</th>
 					<th>Date</th>
+					<th>Nombre de tranches</th>
+					<th>Code Admin</th>
+					<th>Code Caisse</th>
+					<th>Code Pret</th>
+					<th>Justificatif</th>
 
 
 
@@ -31,12 +36,17 @@
 				<tr th:each="remboursement : ${remboursements}">
 					<td th:text="${remboursement.id}"><a
 						href="/remboursement/${remboursement.id}">Id</a></td>
-					<td th:text="${remboursement.id_etudiant}">Id Etudiant</td>
+					<td th:text="${remboursement.codeEtu}">Id Etudiant</td>
 					<td th:text="${remboursement.montant}">Montant</td>
 					<td th:text="${remboursement.periode}">Periode</td>
 					<td th:text="${remboursement.statut}">Statut</td>
 					<td th:text="${remboursement.type}">Type</td>
 					<td th:text="${remboursement.date}">Date</td>
+					<td th:text="${remboursement.nbDeTranches}">Nombre de tranches</td>
+					<td th:text="${remboursement.codeAdmin}">Code Admin</td>
+					<td th:text="${remboursement.codeCaisse}">Code Caisse</td>
+					<td th:text="${remboursement.CODE_PRET}">Code Pret</td>
+					<td th:text="${remboursement.justificatif}">Justificatif</td>
 
 					<td><a th:href="${ '/remboursement/' + remboursement.id}">View</a></td>
 					<td><a th:href="${'/remboursement/edit/' + remboursement.id}">Edit</a></td>

@@ -19,8 +19,8 @@ public class Etudiant extends Personne {
 	//car on a utilisé le mapping TABLE_PER_CLASS
 	@Column(name="motDePasse")
 	private String motDePasse;
-	@Column(name="villeEtude")
-    private String villeEtude;
+	@Column(name="ville")
+    private String ville;
 	@Column(name="etablissement")
     private String etablissement;
 	@Column(name="filiere")
@@ -33,9 +33,9 @@ public class Etudiant extends Personne {
     private int nbAnneeMaroc;
 	@Column(name="dateInscription")
     private String dateInscription;
-	@Column(name="numeroTelephone")
-    private int numeroTelephone;
-	@Column(name="updateTableauDeBor")
+	@Column(name="telephone")
+    private int Telephone;
+	@Column(name="updateTableauDeBord")
     private Date updateTableauDeBord;
 	
 	

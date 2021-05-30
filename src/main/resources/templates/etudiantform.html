@@ -14,10 +14,22 @@
 		<div>
 			<form class="form-horizontal" th:object="${etudiant}"
 				th:action="@{/etudiant}" method="post">
-					<div class="form-group">
-					<label class="col-sm-2 control-label">Id:</label>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Email:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{id}" />
+						<input type="text" class="form-control" th:field="*{email}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nom:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nom}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Prénom:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{prenom}" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -33,63 +45,45 @@
 						<input type="text" class="form-control" th:field="*{filiere}" />
 					</div>
 				</div>
-
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Ville d'etude:</label>
+					<label class="col-sm-2 control-label">Mot de passe:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{ville_etude}" />
+						<input type="text" class="form-control" th:field="*{motDePasse}" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Sexe:</label>
+					<label class="col-sm-2 control-label">Nombre d'année au Maroc:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{sexe}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Pays d'origine:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{pays_origine}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Noombre d'annees au Maroc:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{nombre_annee_au_maroc}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Date d'inscription:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{date_inscription}" />
+						<input type="text" class="form-control" th:field="*{nbAnneeMaroc}" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Numéro de téléphone:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{numero_telephone}" />
+						<input type="text" class="form-control" th:field="*{telephone}" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Pays d'origine:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{paysOrigine}" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Modification du tableau de bord:</label>
+					<label class="col-sm-2 control-label">Genre:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{modification_tableau_de_bord}" />
+						<input type="text" class="form-control" th:field="*{sexe}" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Mot de passe:</label>
+					<label class="col-sm-2 control-label">Ville d'etude:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{mot_de_passe}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Id personne:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{id_personne}" />
+						<input type="text" class="form-control" th:field="*{ville}" />
 					</div>
 				</div>
 				<div class="row">
-					<button type="submit" class="btn btn-default">Soumettre</button>
+					<button type="submit" class="btn btn-default">Créer</button>
 				</div>
 			</form>
 		</div>

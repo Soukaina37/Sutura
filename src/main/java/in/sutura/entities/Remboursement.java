@@ -34,11 +34,16 @@ public class Remboursement {
     @ManyToOne
    	@JoinColumn(name="CODE_CAISSE")
    	private Caisse caisse;
+    
+    @ManyToOne
+   	@JoinColumn(name="CODE_PRET", nullable=false)
+   	private Pret pret;
 	
     @OneToOne( cascade = CascadeType.ALL ) 
     @JoinColumn( name="Justificatif" )
     private Justificatif justificatif;
-
+    
+    
 	public Long getId() {
 		return id;
 	}
@@ -126,7 +131,24 @@ public class Remboursement {
 	public void setJustificatif(Justificatif justificatif) {
 		this.justificatif = justificatif;
 	}
+
+	public Caisse getCaisse() {
+		return caisse;
+	}
+
+	public void setCaisse(Caisse caisse) {
+		this.caisse = caisse;
+	}
+
+	public Pret getPret() {
+		return pret;
+	}
+
+	public void setPret(Pret pret) {
+		this.pret = pret;
+	}
     
+	
     
 	
 }

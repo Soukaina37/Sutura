@@ -15,7 +15,6 @@ import javax.persistence.OneToOne;
 public class Depense {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private int idAdmin;
 	private Date date;
 	private double montant;
 	private String description;
@@ -38,14 +37,6 @@ public class Depense {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public int getIdAdmin() {
-		return idAdmin;
-	}
-
-	public void setIdAdmin(int idAdmin) {
-		this.idAdmin = idAdmin;
 	}
 
 	public Date getDate() {

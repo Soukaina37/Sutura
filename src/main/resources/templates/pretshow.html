@@ -14,20 +14,19 @@
 		<div>
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Pret Id:</label>
-					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.id}">Pret Id</p>
-					</div>
-				</div>
-
-				<div class="form-group">
 					<label class="col-sm-2 control-label">Id Etudiant:</label>
 					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.id_etudiant}">Id
+						<p class="form-control-static" th:text="${pret.codeEtu}">Id
 							Etudiant</p>
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Admin:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.codeAdmin}">Id
+							Etudiant</p>
+					</div>
+				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Montant:</label>
 					<div class="col-sm-10">
@@ -35,15 +34,15 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Commentaire:</label>
+					<label class="col-sm-2 control-label">Statut traitement:</label>
 					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.commentaire}">Commentaire</p>
+						<p class="form-control-static" th:text="${pret.statutTraitement}">Statut</p>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Date:</label>
+					<label class="col-sm-2 control-label">Commentaire:</label>
 					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.date}">Date</p>
+						<p class="form-control-static" th:text="${pret.commentaire}">Commentaire</p>
 					</div>
 				</div>
 				<div class="form-group">
@@ -62,19 +61,13 @@
 					<label class="col-sm-2 control-label">Etat Remboursement:</label>
 					<div class="col-sm-10">
 						<p class="form-control-static"
-							th:text="${pret.etat_remboursement}">Remboursement</p>
+							th:text="${pret.etatRemboursement}">Remboursement</p>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Modification:</label>
 					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.modification}">Modification</p>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Montant:</label>
-					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${pret.montant}">Montant</p>
+						<p class="form-control-static" th:text="${pret.dateModification}">Modification</p>
 					</div>
 				</div>
 				<div class="form-group">
@@ -99,6 +92,18 @@
 					<label class="col-sm-2 control-label">RIB:</label>
 					<div class="col-sm-10">
 						<p class="form-control-static" th:text="${pret.RIB}">RIB</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Caisse:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.codeCaisse}">Code Caisse</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Justificatif:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${pret.jusitificatif}">Pret Id</p>
 					</div>
 				</div>
 			</form>
