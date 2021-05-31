@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Liste des etudiants</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
@@ -16,15 +16,15 @@
 					<th>ID</th>
 					<th>Email</th>
 					<th>Nom</th>
-					<th>Prénom</th>
+					<th>PrÃ©nom</th>
 					<th>Etablissement</th>
 					<th>Filiere</th>
-					<th>Téléphone</th>
+					<th>TÃ©lÃ©phone</th>
 					<th>Pays d'origine</th>
 					<th>Genre</th>
 					<th>Ville</th>
 					<th>Date d'inscription</th>
-					<th>Filière</th>
+					<th>FiliÃ¨re</th>
 					
 					<th>View</th>
 					<th>Edit</th>
@@ -34,10 +34,10 @@
 					<td th:text="${etudiant.id}">Id Etudiant</td>
 					<td th:text="${etudiant.email}">Email</td>
 					<td th:text="${etudiant.nom}">Nom</td>
-					<td th:text="${etudiant.prenom}">Prénom</td>
+					<td th:text="${etudiant.prenom}">PrÃ©nom</td>
 					<td th:text="${etudiant.etablissement}">Etablissement</td>
-					<td th:text="${etudiant.filiere}">Filière</td>
-					<td th:text="${etudiant.telephone}">Téléphone</td>
+					<td th:text="${etudiant.filiere}">FiliÃ¨re</td>
+					<td th:text="${etudiant.telephone}">TÃ©lÃ©phone</td>
 					<td th:text="${etudiant.paysOrigine}">Pays d'origine</td>
 					<td th:text="${etudiant.sexe}">Genre</td>
 					<td th:text="${etudiant.ville}">Ville</td>

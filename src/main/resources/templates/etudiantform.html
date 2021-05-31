@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Creer un etudiant</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Prénom:</label>
+					<label class="col-sm-2 control-label">PrÃ©nom:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{prenom}" />
 					</div>
@@ -52,13 +52,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Nombre d'année au Maroc:</label>
+					<label class="col-sm-2 control-label">Nombre d'annÃ©e au Maroc:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{nbAnneeMaroc}" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Numéro de téléphone:</label>
+					<label class="col-sm-2 control-label">NumÃ©ro de tÃ©lÃ©phone:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" th:field="*{telephone}" />
 					</div>
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<button type="submit" class="btn btn-default">Créer</button>
+					<button type="submit" class="btn btn-default">CrÃ©er</button>
 				</div>
 			</form>
 		</div>

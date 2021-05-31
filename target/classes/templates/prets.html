@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Liste des prets</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
@@ -36,12 +36,12 @@
 				</tr>
 				<tr th:each="pret : ${prets}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
-					<td th:text="${pret.etudiant}">Nom étudiant</td>
+					<td th:text="${pret.etudiant}">Nom Ã©tudiant</td>
 					<td th:text="${pret.etat}">Etat</td>
 					<td th:text="${pret.montant}">Montant</td>
 					<td th:text="${pret.modification}">Modification</td>
 					<td th:text="${pret.periode}">Periode</td>
-					<td th:text="${pret.priorite}">Priorité</td>
+					<td th:text="${pret.priorite}">PrioritÃ©</td>
 					<td th:text="${pret.raison}">Raison</td>
 					<td th:text="${pret.RIB}">RIB</td>
 					<td th:text="${pret.etat_remboursement}">Etat Remboursement</td>

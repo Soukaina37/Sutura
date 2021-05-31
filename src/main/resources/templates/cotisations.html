@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <title>Liste des cotisations</title>
 
@@ -19,8 +20,8 @@
 
 					<th>Montant</th>
 					<th>Expiration</th>
-					<th>Nom �tudiant</th>
-					<th>Pr�nom �tudiant</th>
+					<th>Nom ï¿½tudiant</th>
+					<th>Prï¿½nom ï¿½tudiant</th>
 					<th>ID Caisse</th>
 					<th>Periode</th>
 					<th>Justificatif</th>
@@ -36,7 +37,7 @@
 					<td th:text="${cotisation.date}">Date</td>
 					<td th:text="${cotisation.montant}">Montant</td>
 					<td th:text="${cotisation.expiration}">Expiration</td>
-					<td th:text="${cotisation.etudiant}">Pr�nom �tudiant</td>
+					<td th:text="${cotisation.etudiant}">Prï¿½nom ï¿½tudiant</td>
 					<td th:text="${cotisation.caisse}">ID Caisse</td>
 					<td th:text="${cotisation.periode}">Periode</td>
 					<td th:text="${cotisation.justificatif}">Justificatif</td>

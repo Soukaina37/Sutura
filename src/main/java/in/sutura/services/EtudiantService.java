@@ -13,6 +13,7 @@ public interface EtudiantService {
     Etudiant saveEtudiant(Etudiant etudiant);
 
     void deleteEtudiant(Long id);
+    
     long countEtudiants();
 
 }

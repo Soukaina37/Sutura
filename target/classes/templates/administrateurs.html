@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Liste des administrateurs</title>
 
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
@@ -17,9 +17,9 @@
 					<th>Prenom</th>
 					<th>Date d'inscription</th>
 					<th>Etablissement</th>
-					<th>Filière</th>
-					<th>Nombre d'années au Maroc</th>
-					<th>Numéro de téléphone</th>
+					<th>FiliÃ¨re</th>
+					<th>Nombre d'annÃ©es au Maroc</th>
+					<th>NumÃ©ro de tÃ©lÃ©phone</th>
 					<th>Pays</th>
 					<th>Genre</th>
 					<th>Ville</th>
@@ -34,12 +34,12 @@
 				</tr>
 				<tr th:each="administrateur : ${administrateurs}">
 					<td th:text="${administrateur.nom}">Nom</td>
-					<td th:text="${administrateur.prenom}">Prénom</td>
+					<td th:text="${administrateur.prenom}">PrÃ©nom</td>
 					<td th:text="${administrateur.dateInscription}">Date d'inscription</td>
 					<td th:text="${administrateur.etablissement}">Etablissement</td>
-					<td th:text="${administrateur.filiere}">Filière</td>
-					<td th:text="${administrateur.nbAnneeMaroc}">Nombre d'années au Maroc</td>
-					<td th:text="${administrateur.telephone}">Téléphone</td>
+					<td th:text="${administrateur.filiere}">FiliÃ¨re</td>
+					<td th:text="${administrateur.nbAnneeMaroc}">Nombre d'annÃ©es au Maroc</td>
+					<td th:text="${administrateur.telephone}">TÃ©lÃ©phone</td>
 					<td th:text="${administrateur.paysOrigine}">Pays</td>
 					<td th:text="${administrateur.sexe}">Genre</td>
 					<td th:text="${administrateur.ville}">Ville</td>
