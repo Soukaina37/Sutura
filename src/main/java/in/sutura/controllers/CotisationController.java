@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Cotisation;
-import sutura.in.services.CotisationService;
+import in.sutura.services.CotisationService;
 
 /**
  * Cotisation controller.

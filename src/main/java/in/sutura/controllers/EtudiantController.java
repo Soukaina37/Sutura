@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Etudiant;
-import sutura.in.services.EtudiantService;
+import in.sutura.services.EtudiantService;
 
 /**
  * Etudiant controller.

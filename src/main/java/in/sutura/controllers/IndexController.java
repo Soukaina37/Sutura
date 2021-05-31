@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import sutura.in.services.AdministrateurService;
-import sutura.in.services.CotisationService;
-import sutura.in.services.DepenseService;
-import sutura.in.services.DonService;
-import sutura.in.services.EtudiantService;
-import sutura.in.services.PretService;
-import sutura.in.services.RemboursementService;
+import in.sutura.services.AdministrateurService;
+import in.sutura.services.CotisationService;
+import in.sutura.services.DepenseService;
+import in.sutura.services.DonService;
+import in.sutura.services.EtudiantService;
+import in.sutura.services.PretService;
+import in.sutura.services.RemboursementService;
 
 /**
  * Homepage controller.

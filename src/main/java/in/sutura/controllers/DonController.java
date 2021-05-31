@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Don;
-import sutura.in.services.DonService;
+import in.sutura.services.DonService;
 
 /**
  * Don controller.

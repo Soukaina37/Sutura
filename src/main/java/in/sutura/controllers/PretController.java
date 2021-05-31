@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Pret;
 import in.sutura.priority.CalculPriorite;
-import sutura.in.services.PretService;
+import in.sutura.services.PretService;
 
 /**
  * Pret controller.

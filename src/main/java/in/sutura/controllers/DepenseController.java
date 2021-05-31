@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Depense;
-import sutura.in.services.DepenseService;
+import in.sutura.services.DepenseService;
 
 /**
  * Depense controller.
