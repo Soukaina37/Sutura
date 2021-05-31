@@ -13,6 +13,7 @@
 			<h2>Liste des etudiants</h2>
 			<table class="table table-striped">
 				<tr>
+					<th>ID</th>
 					<th>Email</th>
 					<th>Nom</th>
 					<th>Prénom</th>
@@ -23,11 +24,14 @@
 					<th>Genre</th>
 					<th>Ville</th>
 					<th>Date d'inscription</th>
+					<th>Filière</th>
+					
 					<th>View</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
 				<tr th:each="etudiant : ${etudiants}">
+					<td th:text="${etudiant.id}">Id Etudiant</td>
 					<td th:text="${etudiant.email}">Email</td>
 					<td th:text="${etudiant.nom}">Nom</td>
 					<td th:text="${etudiant.prenom}">Prénom</td>
@@ -38,8 +42,8 @@
 					<td th:text="${etudiant.sexe}">Genre</td>
 					<td th:text="${etudiant.ville}">Ville</td>
 					<td th:text="${etudiant.dateInscription}">Date d'inscription</td>
-					
 					<td th:text="${etudiant.filiere}">filiere</td>
+					
 					<td><a th:href="${ '/etudiant/' + etudiant.id}">View</a></td>
 					<td><a th:href="${'/etudiant/edit/' + etudiant.id}">Edit</a></td>
 					<td><a th:href="${'/etudiant/delete/' + etudiant.id}">Delete</a></td>
