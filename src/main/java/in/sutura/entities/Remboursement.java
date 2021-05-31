@@ -20,7 +20,7 @@ public class Remboursement {
 	private Date date;
 	private int periode;//correspond à l'année
 	private String type;//remboursement en entier ou partiel
-	private boolean statut;//true si c'est traité et false par défaut
+	private boolean statut=false;//true si c'est traité et false par défaut
     private int nbDeTranches;
     
     @ManyToOne
