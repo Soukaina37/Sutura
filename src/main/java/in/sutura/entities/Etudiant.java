@@ -48,4 +48,114 @@ public class Etudiant extends Personne {
 	@OneToMany(mappedBy="etudiant",fetch = FetchType.LAZY)
 	private Collection <Remboursement> remboursements;
 
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public String getEtablissement() {
+		return etablissement;
+	}
+
+	public void setEtablissement(String etablissement) {
+		this.etablissement = etablissement;
+	}
+
+	public String getFiliere() {
+		return filiere;
+	}
+
+	public void setFiliere(String filiere) {
+		this.filiere = filiere;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getPaysOrigine() {
+		return paysOrigine;
+	}
+
+	public void setPaysOrigine(String paysOrigine) {
+		this.paysOrigine = paysOrigine;
+	}
+
+	public int getNbAnneeMaroc() {
+		return nbAnneeMaroc;
+	}
+
+	public void setNbAnneeMaroc(int nbAnneeMaroc) {
+		this.nbAnneeMaroc = nbAnneeMaroc;
+	}
+
+	public String getDateInscription() {
+		return dateInscription;
+	}
+
+	public void setDateInscription(String dateInscription) {
+		this.dateInscription = dateInscription;
+	}
+
+	public int getTelephone() {
+		return Telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		Telephone = telephone;
+	}
+
+	public Date getUpdateTableauDeBord() {
+		return updateTableauDeBord;
+	}
+
+	public void setUpdateTableauDeBord(Date updateTableauDeBord) {
+		this.updateTableauDeBord = updateTableauDeBord;
+	}
+
+	public Collection<Cotisation> getCotisations() {
+		return cotisations;
+	}
+
+	public void setCotisations(Collection<Cotisation> cotisations) {
+		this.cotisations = cotisations;
+	}
+
+	public Collection<Pret> getPrets() {
+		return prets;
+	}
+
+	public void setPrets(Collection<Pret> prets) {
+		this.prets = prets;
+	}
+
+	public Collection<Remboursement> getRemboursements() {
+		return remboursements;
+	}
+
+	public void setRemboursements(Collection<Remboursement> remboursements) {
+		this.remboursements = remboursements;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
 }

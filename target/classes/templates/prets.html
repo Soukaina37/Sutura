@@ -36,7 +36,7 @@
 				</tr>
 				<tr th:each="pret : ${prets}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
-					<td th:text="${pret.codeEtu}">Nom étudiant</td>
+					<td th:text="${pret.etudiant}">Nom étudiant</td>
 					<td th:text="${pret.etat}">Etat</td>
 					<td th:text="${pret.montant}">Montant</td>
 					<td th:text="${pret.modification}">Modification</td>
@@ -48,7 +48,7 @@
 					<td th:text="${pret.date}">Date</td>
 					<td th:text="${pret.echeance}">Echeance</td>
 					<td th:text="${pret.dateTraitement}">Dernier traitement</td>
-					<td th:text="${pret.codeAdmin}">Code Admin</td>
+					<td th:text="${pret.administrateur}">Code Admin</td>
 					<td th:text="${pret.justificatif}">Justificatif</td>
 
 

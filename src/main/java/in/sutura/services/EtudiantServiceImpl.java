@@ -6,15 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.sutura.entities.Etudiant;
-import in.sutura.entities.Personne;
 import in.sutura.repositories.EtudiantRepository;
-import in.sutura.repositories.PersonneRepository;
 
 @Service
 public class EtudiantServiceImpl implements EtudiantService {
 
     private EtudiantRepository etudiantRepository;
-    private PersonneRepository personneRepository;
 
     @Autowired
     public void setEtudiantRepository(EtudiantRepository etudiantRepository) {
@@ -27,8 +24,8 @@ public class EtudiantServiceImpl implements EtudiantService {
     }
 
     @Override
-    public Optional<Personne> getEtudiantById(Long id) {
-        return personneRepository.findById(id);
+    public Optional<Etudiant> getEtudiantById(Long id) {
+        return etudiantRepository.findById(id);
     }
 
     @Override
@@ -38,7 +35,7 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public void deleteEtudiant(Long id) {
-    	personneRepository.deleteById(id);
+    	etudiantRepository.deleteById(id);
     }
     @Override
     public long countEtudiants() {

@@ -6,17 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.sutura.entities.Administrateur;
-import in.sutura.entities.Personne;
 import in.sutura.repositories.AdministrateurRepository;
-import in.sutura.repositories.PersonneRepository;
 
 /**
  * Administrateur service implement.
  */
 @Service
 public class AdministrateurServiceImpl implements AdministrateurService {
-
-    private PersonneRepository personneRepository;
     
     private AdministrateurRepository administrateurRepository;
 
@@ -26,23 +22,23 @@ public class AdministrateurServiceImpl implements AdministrateurService {
     }
 
     @Override
-    public Iterable<Personne> listAllAdministrateurs() {
-        return personneRepository.findAll();
+    public Iterable<Administrateur> listAllAdministrateurs() {
+        return administrateurRepository.findAll();
     }
 
     @Override
-    public Optional<Personne> getAdministrateurById(Long id) {
-        return personneRepository.findById(id);
+    public Optional<Administrateur> getAdministrateurById(Long id) {
+        return administrateurRepository.findById(id);
     }
 
     @Override
     public Administrateur saveAdministrateur(Administrateur administrateur) {
-        return personneRepository.save(administrateur);
+        return administrateurRepository.save(administrateur);
     }
 
     @Override
     public void deleteAdministrateur(Long id) {
-    	personneRepository.deleteById(id);
+    	administrateurRepository.deleteById(id);
     }
     
     @Override

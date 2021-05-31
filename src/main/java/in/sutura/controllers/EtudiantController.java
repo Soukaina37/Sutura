@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +47,12 @@ public class EtudiantController {
      */
     @RequestMapping("etudiant/{id}")
     public String showEtudiant(@PathVariable Long id, Model model) {
-        model.addAttribute("etudiant", etudiantService.getEtudiantById(id));
-        return "etudiantshow";
+    	 Optional<Etudiant> etudiant = etudiantService.getEtudiantById(id);
+    	 
+    	 if( etudiant.isPresent() ) {
+             model.addAttribute("etudiant", etudiant.get());
+    }
+    	 return "etudiantshow";
     }
 
     // Afficher le formulaire de modification du Etudiant
