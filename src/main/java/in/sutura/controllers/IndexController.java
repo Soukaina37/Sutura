@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import in.sutura.services.AdministrateurService;
+import in.sutura.services.CaisseService;
 import in.sutura.services.CotisationService;
 import in.sutura.services.DepenseService;
 import in.sutura.services.DonService;
@@ -61,6 +62,14 @@ public class IndexController {
 	    public void setAdministrateurService(AdministrateurService administrateurService) {
 	        this.administrateurService = administrateurService;
 	    }
+	    
+	    private CaisseService caisseService;
+
+	    @Autowired
+	    public void setCaisseService(CaisseService caisseService) {
+	        this.caisseService = caisseService;
+	    }
+	    
     @RequestMapping("/")
     String index(Model model) {
         model.addAttribute("cotisationCount", cotisationService.countCotisations());
@@ -69,7 +78,8 @@ public class IndexController {
         model.addAttribute("pretCount", pretService.countPrets());
         model.addAttribute("remboursementCount", remboursementService.countRemboursements());
         model.addAttribute("etudiantCount", etudiantService.countEtudiants());
-        model.addAttribute("administrateurs", administrateurService.listAllAdministrateurs());
+        model.addAttribute("administrateurCount", administrateurService.countAdministrateurs());
+        model.addAttribute("caisseCount", caisseService.countCaisses());
 
         return "index";
     }

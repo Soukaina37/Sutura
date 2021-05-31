@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Liste des caisses</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div th:if="${not #lists.isEmpty(caisses)}">
+			<h2>Caisse</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Statut</th>
+					<th>Montant Actuel</th>
+					<th>Montant Caisse</th>
+					<th>Seuil</th>
+					
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					
+				</tr>
+				<tr th:each="caisse : ${caisses}">
+					<td th:text="${caisse.id}">Id</td>
+					<td th:text="${caisse.isFavorable}">Statut</td>
+					<td th:text="${caisse.montantActuel}">Montant Actuel</td>
+					<td th:text="${caisse.montantCaisse}">Montant Caisse</td>
+					<td th:text="${caisse.seuil}">Seuil</td>
+					
+	
+					<td><a th:href="${ '/caisse/' + caisse.id}">View</a></td>
+					<td><a th:href="${'/caisse/edit/' + caisse.id}">Edit</a></td>
+					<td><a th:href="${'/caisse/delete/' + caisse.id}">Delete</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

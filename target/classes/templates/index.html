@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="fr">
@@ -51,6 +52,14 @@
 					<td><a href="/depense/new">Creer</a></td>
 
 				</tr>
+				</tr>
+					<tr>
+					<td>Caisses</td>
+					<td th:text="${caisseCount}">Nombre</td>
+					<td><a href="/caisses">Voir</a></td>
+					<td><a href="/caisse/new">Creer</a></td>
+
+				</tr>
 			</table>
 		</div>
 		<div>
@@ -69,6 +78,13 @@
 					<td><a href="/etudiants">Voir</a></td>
 					<td><a href="/etudiant/new">Creer</a></td>
 				</tr>
+				<tr>
+					<td>Administrateurs</td>
+					<td th:text="${administrateurCount}">Nombre</td>
+					<td><a href="/administrateurs">Voir</a></td>
+					<td><a href="/administrateur/new">Creer</a></td>
+				</tr>
+				
 			</table>
 
 		</div>
