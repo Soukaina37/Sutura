@@ -58,9 +58,13 @@ public class AdministrateurController {
     // Afficher le formulaire de modification d'administrateur
     @RequestMapping("administrateur/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("administrateur", administrateurService.getAdministrateurById(id));
-        return "administrateurform";
-    }
+    	Optional<Administrateur>administrateur = administrateurService.getAdministrateurById(id);
+   	 
+   	 if( administrateur.isPresent() ) {
+            model.addAttribute("administrateur", administrateur.get());
+   }
+   	 return "administrateurform";
+   }
 
     /**
      * New administrateur.

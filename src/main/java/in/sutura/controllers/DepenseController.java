@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,16 +47,24 @@ public class DepenseController {
      */
     @RequestMapping("depense/{id}")
     public String showDepense(@PathVariable Long id, Model model) {
-        model.addAttribute("depense", depenseService.getDepenseById(id));
-        return "depenseshow";
+    	Optional<Depense> depense = depenseService.getDepenseById(id);
+   	 
+   	 if( depense.isPresent() ) {
+            model.addAttribute("depense", depense.get());
+   }
+   	 return "depenseshow";
     }
 
     // Afficher le formulaire de modification du Depense
     @RequestMapping("depense/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("depense", depenseService.getDepenseById(id));
-        return "depenseform";
-    }
+    	Optional<Depense> depense = depenseService.getDepenseById(id);
+      	 
+      	 if( depense.isPresent() ) {
+               model.addAttribute("depense", depense.get());
+      }
+      	 return "depenseform";
+       }
 
     /**
      * New depense.

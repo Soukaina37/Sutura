@@ -1,5 +1,8 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +48,12 @@ public class CotisationController {
      */
     @RequestMapping("cotisation/{id}")
     public String showCotisation(@PathVariable Long id, Model model) {
-        model.addAttribute("cotisation", cotisationService.getCotisationById(id));
-        return "cotisationshow";
+    	Optional<Cotisation> cotisation = cotisationService.getCotisationById(id);
+   	 
+   	 if( cotisation.isPresent() ) {
+            model.addAttribute("cotisation", cotisation.get());
+   }
+   	 return "cotisationshow";
     }
 
     // Afficher le formulaire de modification du Cotisation

@@ -1,14 +1,21 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Caisse;
+import in.sutura.entities.Etudiant;
 import in.sutura.services.CaisseService;
-
+/**
+ * Caisse controller.
+ */
+@Controller
 public class CaisseController {
 	 private CaisseService caisseService;
 
@@ -39,15 +46,23 @@ public class CaisseController {
 	     */
 	    @RequestMapping("caisse/{id}")
 	    public String showCaisse(@PathVariable Long id, Model model) {
-	        model.addAttribute("caisse", caisseService.getCaisseById(id));
-	        return "caisseshow";
+	    	Optional<Caisse> caisse = caisseService.getCaisseById(id);
+	    	 
+	    	 if( caisse.isPresent() ) {
+	             model.addAttribute("caisse", caisse.get());
+	    }
+	    	 return "caisseshow";
 	    }
 
 	    // Afficher le formulaire de modification de la Caisse
 	    @RequestMapping("caisse/edit/{id}")
 	    public String edit(@PathVariable Long id, Model model) {
-	        model.addAttribute("caisse", caisseService.getCaisseById(id));
-	        return "caisseform";
+	    	Optional<Caisse> caisse = caisseService.getCaisseById(id);
+	    	 
+	    	 if( caisse.isPresent() ) {
+	             model.addAttribute("caisse", caisse.get());
+	    }
+	    	 return "caisseform";
 	    }
 
 	    /**

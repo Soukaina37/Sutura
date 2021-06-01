@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,16 +47,24 @@ public class DonController {
      */
     @RequestMapping("don/{id}")
     public String showDon(@PathVariable Long id, Model model) {
-        model.addAttribute("don", donService.getDonById(id));
-        return "donshow";
+    	Optional<Don> don = donService.getDonById(id);
+   	 
+   	 if( don.isPresent() ) {
+            model.addAttribute("don", don.get());
+   }
+   	 return "donshow";
     }
 
     // Afficher le formulaire de modification du Don
     @RequestMapping("don/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("don", donService.getDonById(id));
-        return "donform";
-    }
+    	Optional<Don> don = donService.getDonById(id);
+      	 
+      	 if( don.isPresent() ) {
+               model.addAttribute("don", don.get());
+      }
+      	 return "donshow";
+       }
 
     /**
      * New don.

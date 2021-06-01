@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,16 +48,24 @@ public class PretController {
      */
     @RequestMapping("pret/{id}")
     public String showPret(@PathVariable Long id, Model model) {
-        model.addAttribute("pret", pretService.getPretById(id));
-        return "pretshow";
+    	Optional<Pret> pret = pretService.getPretById(id);
+   	 
+   	 if( pret.isPresent() ) {
+            model.addAttribute("pret", pret.get());
+   }
+   	 return "caisseshow";
     }
 
     // Afficher le formulaire de modification du Pret
     @RequestMapping("pret/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("pret", pretService.getPretById(id));
-        return "pretform";
-    }
+    	Optional<Pret> pret = pretService.getPretById(id);
+      	 
+      	 if( pret.isPresent() ) {
+               model.addAttribute("pret", pret.get());
+      }
+      	 return "caisseshow";
+       }
 
     /**
      * New pret.

@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,16 +47,24 @@ public class RemboursementController {
      */
     @RequestMapping("remboursement/{id}")
     public String showRemboursement(@PathVariable Long id, Model model) {
-        model.addAttribute("remboursement", remboursementService.getRemboursementById(id));
-        return "remboursementshow";
+    	Optional<Remboursement> remboursement = remboursementService.getRemboursementById(id);
+   	 
+   	 if( remboursement.isPresent() ) {
+            model.addAttribute("caisse", remboursement.get());
+   	 }
+   	 return "remboursementshow";
     }
 
     // Afficher le formulaire de modification du Remboursement
     @RequestMapping("remboursement/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("remboursement", remboursementService.getRemboursementById(id));
-        return "remboursementform";
-    }
+    	Optional<Remboursement> remboursement = remboursementService.getRemboursementById(id);
+      	 
+      	 if( remboursement.isPresent() ) {
+               model.addAttribute("caisse", remboursement.get());
+      	 }
+      	 return "remboursementshow";
+       }
 
     /**
      * New remboursement.

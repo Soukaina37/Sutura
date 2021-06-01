@@ -58,9 +58,13 @@ public class EtudiantController {
     // Afficher le formulaire de modification du Etudiant
     @RequestMapping("etudiant/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("etudiant", etudiantService.getEtudiantById(id));
-        return "etudiantform";
-    }
+    	Optional<Etudiant> etudiant = etudiantService.getEtudiantById(id);
+   	 
+   	 if( etudiant.isPresent() ) {
+            model.addAttribute("etudiant", etudiant.get());
+   }
+   	 return "etudiantshow";
+   }
 
     /**
      * New etudiant.
