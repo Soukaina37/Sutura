@@ -41,6 +41,24 @@ public class CaisseServiceImpl implements CaisseService {
 	    public long countCaisses() {
 	        return caisseRepository.count();
 	    }
+
+		@Override
+		public void recalcul_montant_actuel(double montant, Caisse caisse) {
+			double montantActuel = caisse.getMontantActuel();
+			montantActuel -= montant;
+			caisse.setMontantActuel(montantActuel);
+			caisseRepository.save(caisse);
+			System.out.println(caisse);
+		}
+
+		@Override
+		public void recalcul_montant_caisse(double montant, Caisse caisse) {
+			double montantCaisse = caisse.getMontantCaisse();
+			montantCaisse -= montant;
+			caisse.setMontantActuel(montantCaisse);
+			caisseRepository.save(caisse);
+			
+		}
 	    
 }
 

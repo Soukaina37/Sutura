@@ -17,4 +17,8 @@ public interface CaisseService {
 	    void deleteCaisse(Long id);
 	    
 	    void setCaisseRepository(CaisseRepository caisseRepository);
+	    
+	    void recalcul_montant_actuel(double montant, Caisse caisse);
+	    
+	    void recalcul_montant_caisse(double montant,Caisse caisse);
 }

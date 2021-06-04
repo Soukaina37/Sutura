@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import in.sutura.entities.Caisse;
 import in.sutura.entities.Depense;
+import in.sutura.services.CaisseService;
 import in.sutura.services.DepenseService;
 
 /**
@@ -19,10 +21,17 @@ import in.sutura.services.DepenseService;
 public class DepenseController {
 
     private DepenseService depenseService;
+    
+    private CaisseService caisseService;
 
     @Autowired
     public void setDepenseService(DepenseService depenseService) {
         this.depenseService = depenseService;
+    }
+    
+    @Autowired
+    public void setCaisseService(CaisseService caisseService) {
+        this.caisseService = caisseService;
     }
 
     /**
@@ -88,8 +97,21 @@ public class DepenseController {
      */
     @RequestMapping(value = "depense", method = RequestMethod.POST)
     public String saveDepense(Depense depense) {
+    	
+        double montant = depense.getMontant();
+        Caisse caisse =  depense.getCaisse();
+        Long idCaisse = caisse.getId();
+        caisseService.recalcul_montant_actuel(montant,caisse);
+        caisseService.recalcul_montant_caisse(montant,caisse);
+        
+        System.out.println(montant);
+        System.out.println(idCaisse);
+        
         depenseService.saveDepense(depense);
+        
+        
         return "redirect:/depense/" + depense.getId();
+        
     }
 
     /**

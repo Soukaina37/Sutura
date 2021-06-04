@@ -13,6 +13,7 @@ public interface DepenseService {
     Depense saveDepense(Depense etudiant);
 
     void deleteDepense(Long id);
+    
     long countDepenses();
 
 
