@@ -9,7 +9,8 @@
 <body>
 	<div class="container">
 		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-
+        <h2 th:if="${flag!=null}">Modifier un don</h2>
+		<h2 th:if="${flag==null}">Ajouter un don</h2>
 		<h2>Details sur le don</h2>
 		<div>
 			<form class="form-horizontal" th:object="${don}" th:action="@{/don}"
