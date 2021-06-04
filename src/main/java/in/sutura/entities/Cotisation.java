@@ -1,7 +1,7 @@
 package in.sutura.entities;
 
  
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

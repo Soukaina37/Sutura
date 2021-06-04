@@ -1,10 +1,7 @@
 package in.sutura.entities;
 
-import java.text.ParseException;
-
-import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -156,11 +153,6 @@ public class Pret {
 		return dateTraitement;
 	}
 
-	public void setDateTraitement(String dateTraitement) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		this.dateTraitement= df.parse(dateTraitement);
-	}
-
 	public Long getRIB() {
 		return RIB;
 	}
@@ -180,12 +172,7 @@ public class Pret {
 	public Date getDateModification() {
 		return dateModification;
 	}
-
-	public void setDateModification(String dateModification) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		this.dateModification= df.parse(dateModification);
-	}
-
+	
 	public String getCommentaire() {
 		return commentaire;
 	}
