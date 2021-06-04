@@ -1,6 +1,8 @@
 package in.sutura.entities;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -26,9 +28,12 @@ public class Don {
 	@JoinColumn(name="CODE_CAISSE")
 	private Caisse caisse;
 	
-	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="Justificatif" )
-    private Justificatif justificatif;
+	/*
+	 * @OneToOne( cascade = CascadeType.ALL )
+	 * 
+	 * @JoinColumn( name="Justificatif" ) private Justificatif justificatif;
+	 */
+	private boolean justificatif;
 	
 	@OneToOne( cascade = CascadeType.ALL ) 
     @JoinColumn( name="Donateur" )
@@ -74,20 +79,20 @@ public class Don {
 		this.caisse = caisse;
 	}
 
-	public Justificatif getJustificatif() {
-		return justificatif;
-	}
-
-	public void setJustificatif(Justificatif justificatif) {
-		this.justificatif = justificatif;
-	}
-
 	public Donateur getDonateur() {
 		return donateur;
 	}
 
 	public void setDonateur(Donateur donateur) {
 		this.donateur = donateur;
+	}
+
+	public boolean isJustificatif() {
+		return justificatif;
+	}
+
+	public void setJustificatif(boolean justificatif) {
+		this.justificatif = justificatif;
 	}
 	
 	

@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/*
+ * ON VA IGNORER CETTE CLASSE POUR SIMPLIFIER
+ * CAR ON EST PAS EN PHASE DE DEPLOIEMENT
+ */
 @Entity @Table(name = "Justificatif")
 public class Justificatif {
 	@Id  @GeneratedValue(strategy = GenerationType.AUTO)

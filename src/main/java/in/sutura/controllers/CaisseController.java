@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Caisse;
-import in.sutura.entities.Etudiant;
 import in.sutura.services.CaisseService;
 /**
  * Caisse controller.

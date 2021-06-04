@@ -1,15 +1,15 @@
 package in.sutura.entities;
 
-import java.sql.Date;
 
-import javax.persistence.CascadeType;
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Depense {
@@ -27,9 +27,15 @@ public class Depense {
 	@JoinColumn(name="CODE_CAISSE")
 	private Caisse caisse;
 	
-	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="Justificatif" )
-    private Justificatif justificatif;
+	/*
+	 * @OneToOne( cascade = CascadeType.ALL )
+	 * 
+	 * @JoinColumn( name="Justificatif" ) private Justificatif justificatif;
+	 */
+	private boolean justificatif;
+	/*
+	 * DE MEME QUE LA CLASSE COTISATION
+	 */
 
 	public Long getId() {
 		return id;
@@ -79,13 +85,14 @@ public class Depense {
 		this.caisse = caisse;
 	}
 
-	public Justificatif getJustificatif() {
+	public boolean isJustificatif() {
 		return justificatif;
 	}
 
-	public void setJustificatif(Justificatif justificatif) {
+	public void setJustificatif(boolean justificatif) {
 		this.justificatif = justificatif;
 	}
+
 	
 	
 

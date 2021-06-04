@@ -53,7 +53,7 @@ public class PretController {
    	 if( pret.isPresent() ) {
             model.addAttribute("pret", pret.get());
    }
-   	 return "caisseshow";
+   	 return "pretshow";
     }
 
     // Afficher le formulaire de modification du Pret
@@ -64,7 +64,7 @@ public class PretController {
       	 if( pret.isPresent() ) {
                model.addAttribute("pret", pret.get());
       }
-      	 return "caisseshow";
+      	 return "pretshow";
        }
 
     /**

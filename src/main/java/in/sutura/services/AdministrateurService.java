@@ -12,6 +12,7 @@ public interface AdministrateurService {
     Optional<Administrateur> getAdministrateurById(Long id);
 
     Administrateur saveAdministrateur(Administrateur administrateur);
+    
     long countAdministrateurs();
 
     void deleteAdministrateur(Long id);

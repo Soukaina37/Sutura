@@ -62,30 +62,6 @@ public class Administrateur extends Etudiant {
 		this.description = description;
 	}
 
-	public Collection<Cotisation> getCotisations() {
-		return cotisations;
-	}
-
-	public void setCotisations(Collection<Cotisation> cotisations) {
-		this.cotisations = cotisations;
-	}
-
-	public Collection<Pret> getPrets() {
-		return prets;
-	}
-
-	public void setPrets(Collection<Pret> prets) {
-		this.prets = prets;
-	}
-
-	public Collection<Remboursement> getRemboursements() {
-		return remboursements;
-	}
-
-	public void setRemboursements(Collection<Remboursement> remboursements) {
-		this.remboursements = remboursements;
-	}
-
 	public Collection<Don> getDons() {
 		return dons;
 	}
@@ -101,12 +77,11 @@ public class Administrateur extends Etudiant {
 	public void setDepenses(Collection<Depense> depenses) {
 		this.depenses = depenses;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	
-
-	
+	/*
+	 * si on redéfinit un constructeur dans cette classe Administrateur,
+	 * on aura des problèmes d'affichage au niveau de l'affichage de:
+	 * <p class="form-control-static" th:text="${pret.administrateur}">
+	 * dans pretshow.html
+	 */
 }

@@ -112,6 +112,24 @@ public class Caisse {
 	public void setPrets(Collection<Pret> prets) {
 		this.prets = prets;
 	}
+	
+	public Caisse() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Caisse [id=" + id + ", isFavorable=" + isFavorable + ", seuil=" + seuil + ", montantCaisse="
+				+ montantCaisse + ", montantActuel=" + montantActuel + "]";
+	}
+
+	
+	
+	
+	
+	
+	
+
 
 	
 

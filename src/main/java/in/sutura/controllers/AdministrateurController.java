@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -89,6 +90,17 @@ public class AdministrateurController {
     	administrateurService.saveAdministrateur(administrateur);
         return "redirect:/administrateur/" + administrateur.getId();
     }
+    
+	/*ça ne marche pas!
+	 * 
+	 */
+	  @RequestMapping(value = "/update", 
+	  produces = "application/json", 
+	  method=RequestMethod.PUT)
+	  public String updateAdministrateur(@RequestBody Administrateur administrateur) {
+	  administrateurService.saveAdministrateur(administrateur); return
+	  "redirect:/administrateur/" + administrateur.getId(); }
+	 
 
     /**
      * Delete administrateur by its id.

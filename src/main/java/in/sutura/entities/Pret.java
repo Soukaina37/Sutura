@@ -1,9 +1,10 @@
 package in.sutura.entities;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Pret {
@@ -47,9 +47,13 @@ public class Pret {
 	@OneToMany(mappedBy="pret",fetch = FetchType.LAZY)
 	private Collection <Remboursement> remboursements;
 	
-	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="Justificatif" )
-    private Justificatif justificatif;
+	/*
+	 * @OneToOne( cascade = CascadeType.ALL )
+	 * 
+	 * @JoinColumn( name="Justificatif" ) private Justificatif justificatif;
+	 */
+	
+	private boolean justificatif;
 	
 	/*
 	 * pour l'attribut justificatifPretAccorde, on ne peut pas faire le mapping dans
@@ -87,8 +91,9 @@ public class Pret {
 		return dateDemande;
 	}
 
-	public void setDateDemande(Date dateDemande) {
-		this.dateDemande = dateDemande;
+	public void setDateDemande(String dateDemande) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateDemande = df.parse(dateDemande);
 	}
 
 	public String getRaison() {
@@ -151,8 +156,9 @@ public class Pret {
 		return dateTraitement;
 	}
 
-	public void setDateTraitement(Date dateTraitement) {
-		this.dateTraitement = dateTraitement;
+	public void setDateTraitement(String dateTraitement) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateTraitement= df.parse(dateTraitement);
 	}
 
 	public Long getRIB() {
@@ -175,8 +181,9 @@ public class Pret {
 		return dateModification;
 	}
 
-	public void setDateModification(Date dateModification) {
-		this.dateModification = dateModification;
+	public void setDateModification(String dateModification) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateModification= df.parse(dateModification);
 	}
 
 	public String getCommentaire() {
@@ -185,6 +192,25 @@ public class Pret {
 
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
+	}
+	public Collection<Remboursement> getRemboursements() {
+		return remboursements;
+	}
+
+	public void setRemboursements(Collection<Remboursement> remboursements) {
+		this.remboursements = remboursements;
+	}
+
+	public void setDateDemande(Date dateDemande) {
+		this.dateDemande = dateDemande;
+	}
+
+	public void setDateTraitement(Date dateTraitement) {
+		this.dateTraitement = dateTraitement;
+	}
+
+	public void setDateModification(Date dateModification) {
+		this.dateModification = dateModification;
 	}
 
 	public Etudiant getEtudiant() {
@@ -211,12 +237,12 @@ public class Pret {
 		this.caisse = caisse;
 	}
 
-	public Justificatif getJustificatif() {
+	public boolean isJustificatif() {
 		return justificatif;
 	}
 
-	public void setJustificatif(Justificatif justificatif) {
+	public void setJustificatif(boolean justificatif) {
 		this.justificatif = justificatif;
 	}
-	
+
 }

@@ -1,15 +1,15 @@
 package in.sutura.entities;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Remboursement {
@@ -39,10 +39,12 @@ public class Remboursement {
    	@JoinColumn(name="CODE_PRET", nullable=false)
    	private Pret pret;
 	
-    @OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="Justificatif" )
-    private Justificatif justificatif;
-    
+	/*
+	 * @OneToOne( cascade = CascadeType.ALL )
+	 * 
+	 * @JoinColumn( name="Justificatif" ) private Justificatif justificatif;
+	 */
+    private boolean justificatif;
     
 	public Long getId() {
 		return id;
@@ -64,8 +66,9 @@ public class Remboursement {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(String date) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.date = df.parse(date);
 	}
 
 	public int getPeriode() {
@@ -123,15 +126,7 @@ public class Remboursement {
 	public void setCaisses(Caisse caisses) {
 		this.caisse = caisses;
 	}
-
-	public Justificatif getJustificatif() {
-		return justificatif;
-	}
-
-	public void setJustificatif(Justificatif justificatif) {
-		this.justificatif = justificatif;
-	}
-
+	
 	public Caisse getCaisse() {
 		return caisse;
 	}
@@ -146,6 +141,14 @@ public class Remboursement {
 
 	public void setPret(Pret pret) {
 		this.pret = pret;
+	}
+
+	public boolean isJustificatif() {
+		return justificatif;
+	}
+
+	public void setJustificatif(boolean justificatif) {
+		this.justificatif = justificatif;
 	}
     
 	

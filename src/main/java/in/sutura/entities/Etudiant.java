@@ -1,7 +1,8 @@
 package in.sutura.entities;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -109,7 +110,8 @@ public class Etudiant extends Personne {
 	}
 
 	public void setDateInscription(String dateInscription) {
-		this.dateInscription = dateInscription;
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateInscription = df.format(dateInscription);
 	}
 
 	public int getTelephone() {
@@ -152,10 +154,10 @@ public class Etudiant extends Personne {
 		this.remboursements = remboursements;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Etudiant() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
 	
 
 }
