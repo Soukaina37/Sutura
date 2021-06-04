@@ -13,11 +13,12 @@
 			<h2>Liste des depenses</h2>
 			<table class="table table-striped">
 				<tr>
+					<th>ID</th>
 					<th>Date</th>
-					<th>Description</th>
-					<th>Nom Admin</th>
+					<th>Admin</th>
 					<th>Montant</th>
 					<th>Code Caisse</th>
+					<th>Description</th>
 					<th>Justificatif</th>
 					<th>View</th>
 					<th>Edit</th>
@@ -26,10 +27,10 @@
 				<tr th:each="depense : ${depenses}">
 					<td th:text="${depense.id}"><a href="/depense/${depense.id}">Id</a></td>
 					<td th:text="${depense.date}">Date</td>
-					<td th:text="${depense.description">Description</td>
 					<td th:text="${depense.administrateur}">Code Admin</td>
 					<td th:text="${depense.montant}">Montant</td>
 					<td th:text="${depense.caisse}">Code Caisse</td>
+					<td th:text="${depense.description}">Description</td>
 					<td th:text="${depense.justificatif}">Justificatif</td>
 
 					<td><a th:href="${ '/depense/' + depense.id}">View</a></td>

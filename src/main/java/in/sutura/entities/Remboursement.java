@@ -1,7 +1,5 @@
 package in.sutura.entities;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -66,9 +64,8 @@ public class Remboursement {
 		return date;
 	}
 
-	public void setDate(String date) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		this.date = df.parse(date);
+	public void setDate(Date date){
+		this.date = date;
 	}
 
 	public int getPeriode() {

@@ -50,7 +50,7 @@ public class RemboursementController {
     	Optional<Remboursement> remboursement = remboursementService.getRemboursementById(id);
    	 
    	 if( remboursement.isPresent() ) {
-            model.addAttribute("caisse", remboursement.get());
+            model.addAttribute("remboursement", remboursement.get());
    	 }
    	 return "remboursementshow";
     }

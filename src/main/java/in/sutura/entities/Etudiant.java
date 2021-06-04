@@ -1,6 +1,5 @@
 package in.sutura.entities;
 
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -110,8 +109,7 @@ public class Etudiant extends Personne {
 	}
 
 	public void setDateInscription(String dateInscription) {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		this.dateInscription = df.format(dateInscription);
+		this.dateInscription = dateInscription;
 	}
 
 	public int getTelephone() {

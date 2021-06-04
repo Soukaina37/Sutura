@@ -1,6 +1,7 @@
 package in.sutura.entities;
 
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -91,9 +92,8 @@ public class Pret {
 		return dateDemande;
 	}
 
-	public void setDateDemande(String dateDemande) throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		this.dateDemande = df.parse(dateDemande);
+	public void setDateDemande(Date dateDemande) {
+		this.dateDemande = dateDemande;
 	}
 
 	public String getRaison() {
@@ -201,10 +201,6 @@ public class Pret {
 		this.remboursements = remboursements;
 	}
 
-	public void setDateDemande(Date dateDemande) {
-		this.dateDemande = dateDemande;
-	}
-
 	public void setDateTraitement(Date dateTraitement) {
 		this.dateTraitement = dateTraitement;
 	}
@@ -244,5 +240,15 @@ public class Pret {
 	public void setJustificatif(boolean justificatif) {
 		this.justificatif = justificatif;
 	}
+
+	@Override
+	public String toString() {
+		return "Pret [id=" + id + ", raison=" + raison + ", montant=" + montant + ", periode=" + periode + ", etudiant="
+				+ etudiant + ", administrateur=" + administrateur + "]";
+	}
+
+	
+	
+	
 
 }

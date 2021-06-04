@@ -35,9 +35,17 @@ public class Don {
 	 */
 	private boolean justificatif;
 	
-	@OneToOne( cascade = CascadeType.ALL ) 
-    @JoinColumn( name="Donateur" )
-    private Donateur donateur ;
+	/*
+	 * @OneToOne( cascade = CascadeType.ALL )
+	 * 
+	 * @JoinColumn( name="Donateur" ) private Donateur donateur ;
+	 */
+	/*
+	 * Pour simplifier, nous allons ignorez la classe Donateur
+	 * renseignez seulement le nom du bienfaiteur
+	 */
+	
+	private String bienfaiteur;
 
 	public Long getId() {
 		return id;
@@ -79,20 +87,20 @@ public class Don {
 		this.caisse = caisse;
 	}
 
-	public Donateur getDonateur() {
-		return donateur;
-	}
-
-	public void setDonateur(Donateur donateur) {
-		this.donateur = donateur;
-	}
-
 	public boolean isJustificatif() {
 		return justificatif;
 	}
 
 	public void setJustificatif(boolean justificatif) {
 		this.justificatif = justificatif;
+	}
+
+	public String getBienfaiteur() {
+		return bienfaiteur;
+	}
+
+	public void setBienfaiteur(String bienfaiteur) {
+		this.bienfaiteur = bienfaiteur;
 	}
 	
 	

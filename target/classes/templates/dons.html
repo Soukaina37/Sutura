@@ -28,8 +28,8 @@
 				</tr>
 				<tr th:each="don : ${dons}">
 					<td th:text="${don.id}"><a href="/don/${don.id}">Id</a></td>
-					<td th:text="${don.id_admin}">Id Admin</td>
-					<td th:text="${don.donateur}">Bienfaiteur</td>
+					<td th:text="${don.administrateur}">Id Admin</td>
+					<td th:text="${don.bienfaiteur}">Bienfaiteur</td>
 					<td th:text="${don.montant}">Montant</td>
 					<td th:text="${don.date}">Date</td>
 					<td th:text="${don.administrateur}">Code Admin</td>
