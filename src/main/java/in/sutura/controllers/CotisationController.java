@@ -2,7 +2,6 @@ package in.sutura.controllers;
 
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,7 +58,12 @@ public class CotisationController {
     // Afficher le formulaire de modification du Cotisation
     @RequestMapping("cotisation/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("cotisation", cotisationService.getCotisationById(id));
+    	Optional<Cotisation>cotisation = cotisationService.getCotisationById(id);
+        if( cotisation.isPresent() ) {
+            model.addAttribute("cotisation", cotisation.get());
+            model.addAttribute("flag", "il faut afficher l'ID");
+   }
+        
         return "cotisationform";
     }
 

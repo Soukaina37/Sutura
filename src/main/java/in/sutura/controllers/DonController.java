@@ -62,8 +62,9 @@ public class DonController {
       	 
       	 if( don.isPresent() ) {
                model.addAttribute("don", don.get());
+               model.addAttribute("flag", "il faut afficher l'ID");
       }
-      	 return "donshow";
+      	 return "donform";
        }
 
     /**

@@ -51,6 +51,7 @@ public class DepenseController {
    	 
    	 if( depense.isPresent() ) {
             model.addAttribute("depense", depense.get());
+            model.addAttribute("flag", "il faut afficher l'ID");
    }
    	 return "depenseshow";
     }
@@ -62,6 +63,7 @@ public class DepenseController {
       	 
       	 if( depense.isPresent() ) {
                model.addAttribute("depense", depense.get());
+               model.addAttribute("flag", "il faut afficher l'ID");
       }
       	 return "depenseform";
        }

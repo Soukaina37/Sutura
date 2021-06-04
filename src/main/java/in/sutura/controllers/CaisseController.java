@@ -60,6 +60,7 @@ public class CaisseController {
 	    	 
 	    	 if( caisse.isPresent() ) {
 	             model.addAttribute("caisse", caisse.get());
+	             model.addAttribute("flag", "il faut afficher l'ID");
 	    }
 	    	 return "caisseform";
 	    }

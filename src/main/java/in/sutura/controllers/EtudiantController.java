@@ -62,8 +62,9 @@ public class EtudiantController {
    	 
    	 if( etudiant.isPresent() ) {
             model.addAttribute("etudiant", etudiant.get());
+            model.addAttribute("flag", "il faut afficher l'ID");
    }
-   	 return "etudiantshow";
+   	 return "etudiantform";
    }
 
     /**

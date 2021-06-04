@@ -61,9 +61,10 @@ public class RemboursementController {
     	Optional<Remboursement> remboursement = remboursementService.getRemboursementById(id);
       	 
       	 if( remboursement.isPresent() ) {
-               model.addAttribute("caisse", remboursement.get());
+               model.addAttribute("remboursement", remboursement.get());
+               model.addAttribute("flag", "il faut afficher l'ID");
       	 }
-      	 return "remboursementshow";
+      	 return "remboursementform";
        }
 
     /**
