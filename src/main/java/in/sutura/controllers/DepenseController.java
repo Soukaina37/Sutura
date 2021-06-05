@@ -97,20 +97,20 @@ public class DepenseController {
      */
     @RequestMapping(value = "depense", method = RequestMethod.POST)
     public String saveDepense(Depense depense) {
-    	depenseService.saveDepense(depense);
+    	
         double montant = depense.getMontant();
         
         Caisse caisse =  depense.getCaisse();
         double montantActuel = caisse.getMontantActuel();
         double montantCaisse = caisse.getMontantCaisse();
-        double montantActuel1= montantActuel -montant;
-        double montantCaisse1 = montantCaisse -montant;
-        caisse.setMontantActuel(montantActuel1);
-        caisse.setMontantCaisse(montantCaisse1);
-        //Caisse nouvelleCaisse = caisseService.recalcul_montant_fromDepense(montant,caisse);
+        montantActuel =- montant;
+        montantCaisse =- montant;
+        caisse.setMontantActuel(montantActuel);
+        caisse.setMontantCaisse(montantCaisse);
         
         caisseService.update(caisse);
         
+        depenseService.saveDepense(depense);
         
         
         return "redirect:/depense/" + depense.getId();
