@@ -18,7 +18,8 @@ public interface CaisseService {
 	    
 	    void setCaisseRepository(CaisseRepository caisseRepository);
 	    
-	    void recalcul_montant_actuel(double montant, Caisse caisse);
+	    Caisse recalcul_montant_fromDepense(double montant, Caisse caisse);
 	    
-	    void recalcul_montant_caisse(double montant,Caisse caisse);
+	    void update(Caisse caisse);
+
 }

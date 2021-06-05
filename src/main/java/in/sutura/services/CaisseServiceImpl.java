@@ -2,11 +2,14 @@ package in.sutura.services;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.sutura.entities.Caisse;
 import in.sutura.repositories.CaisseRepository;
+
 
 @Service
 public class CaisseServiceImpl implements CaisseService {
@@ -43,20 +46,28 @@ public class CaisseServiceImpl implements CaisseService {
 	    }
 
 		@Override
-		public void recalcul_montant_actuel(double montant, Caisse caisse) {
+		public Caisse recalcul_montant_fromDepense(double montant, Caisse caisse) {
+			
+			double montantCaisse = caisse.getMontantCaisse();
+			montantCaisse = 400;
+			System.out.println(montantCaisse);
+			caisse.setMontantActuel(montantCaisse);
+			
 			double montantActuel = caisse.getMontantActuel();
-			montantActuel -= montant;
+			saveCaisse(caisse);
+			montantActuel = 200;
+			System.out.println(montantActuel);
 			caisse.setMontantActuel(montantActuel);
-			caisseRepository.save(caisse);
+			
 			System.out.println(caisse);
+			saveCaisse(caisse);
+			return caisse;
 		}
 
 		@Override
-		public void recalcul_montant_caisse(double montant, Caisse caisse) {
-			double montantCaisse = caisse.getMontantCaisse();
-			montantCaisse -= montant;
-			caisse.setMontantActuel(montantCaisse);
-			caisseRepository.save(caisse);
+		public void update(Caisse caisse) {
+			Long id = caisse.getId();
+			caisseRepository.update(id, caisse);
 			
 		}
 	    
