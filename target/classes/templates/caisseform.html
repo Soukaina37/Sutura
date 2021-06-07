@@ -11,8 +11,7 @@
 		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 		<h2 th:if="${flag!=null}">Modifier une caisse</h2>
 		<h2 th:if="${flag==null}">Ajouter une caisse</h2>
-
-		<h2>Details sur la caisse</h2>
+		
 		<div>
 			<form class="form-horizontal" th:object="${caisse}"
 				th:action="@{/caisse}" method="post">

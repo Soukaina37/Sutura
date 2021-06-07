@@ -12,7 +12,6 @@
 		<h2 th:if="${flag!=null}">Modifier un remboursement</h2>
 		<h2 th:if="${flag==null}">Ajouter un remboursement</h2>
 
-		<h2>Details sur le remboursement</h2>
 		<div>
 			<form class="form-horizontal" th:object="${remboursement}"
 				th:action="@{/remboursement}" method="post">

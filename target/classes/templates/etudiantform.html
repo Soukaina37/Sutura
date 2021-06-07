@@ -12,7 +12,6 @@
 		<h2 th:if="${flag!=null}">Modifier un etudiant</h2>
 		<h2 th:if="${flag==null}">Ajouter un etudiant</h2>
 
-		<h2>Details sur l'etudiant</h2>
 		<div>
 			<form class="form-horizontal" th:object="${etudiant}"
 				th:action="@{/etudiant}" method="post">

@@ -12,7 +12,6 @@
 		<h2 th:if="${flag!=null}">Modifier un pret</h2>
 		<h2 th:if="${flag==null}">Ajouter un pret</h2>
 
-		<h2>Details sur le pret</h2>
 		<div>
 			<form class="form-horizontal" th:object="${pret}"
 				th:action="@{/pret}" method="post">

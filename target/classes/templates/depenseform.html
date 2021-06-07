@@ -12,7 +12,6 @@
 		<h2 th:if="${flag!=null}">Modifier une depense</h2>
 		<h2 th:if="${flag==null}">Ajouter une depense</h2> 
 
-		<h2>Details sur la depense</h2>
 		<div>
 			<form class="form-horizontal" th:object="${depense}"
 				th:action="@{/depense}" method="post">
