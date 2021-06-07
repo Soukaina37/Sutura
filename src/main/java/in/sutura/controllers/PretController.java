@@ -125,7 +125,7 @@ public class PretController {
         return "redirect:/prets";
     }
     
-    @RequestMapping(value = "pret", method = RequestMethod.POST)
+    @RequestMapping(value = "terminerpret", method = RequestMethod.POST)
     public String terminerPret(Pret pret) {
     	double montantActuelPret = pret.getMontant();
     	Caisse caisse = pret.getCaisse();

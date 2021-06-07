@@ -354,11 +354,13 @@ public class PretServiceImpl implements PretService {
 			pretRepository.update(id,pret);
 			
 		}
-
+		
+		/*
 		@Override
 		public List<Pret> getList(Caisse caisse) {
 			return pretRepository.findAllForRecalcul();
 		}
+		*/
 		
 		//RECALCUL DE LA PRIORITE
 /*

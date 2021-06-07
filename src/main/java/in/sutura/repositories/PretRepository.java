@@ -31,12 +31,16 @@ public interface PretRepository extends JpaRepository<Pret, Long>{
 	
 	*/
 	
+	/*
+	
 	@Query("SELECT p from Pret p where p.etat=:'termine' AND p.etatRemboursement=:'false'")
 	public List<Pret> remboursement_proches();
-
-
+	
+	*/
+	/*
 	@Query("SELECT p from Pret p where p.etat!=:'termine' AND p.etat!=:'supprime' ORDER BY p.priorite DESC")
 	public List<Pret> findAllForRecalcul();
+	*/
 	
 	/*@Query(value = "select * from Account where DATETIMESTAMP >= :dateFrom  AND DATETIMESTAMP < DATE_FORMAT(curdate(), '%d/%m/%Y')", nativeQuery = true)
 	List<Account> findByDate(@Param("dateFrom") String dateFrom);*/

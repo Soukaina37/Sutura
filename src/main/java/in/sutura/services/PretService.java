@@ -23,14 +23,15 @@ public interface PretService {
     
     void classement_priorite(Pret p);
     
-    double recalcul_priorite(Pret p);
+    //double recalcul_priorite(Pret p);
 
 	void update(Pret pret);
 	
 	//Obtenir la liste de tous les prêts concernant la même caisse 
 	//et qui ne sont pas termine et supprime
+	/*
 	List<Pret> getList(Caisse caisse);
-    
+    */
     
 
 }
