@@ -19,6 +19,7 @@ C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutu
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\repositories\AdministrateurRepository.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\entities\Pret.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\controllers\IndexController.java
+C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\priority\ClassementPriorite.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\entities\Personne.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\services\PretServiceImpl.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\controllers\CotisationController.java
@@ -38,6 +39,7 @@ C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutu
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\services\CotisationService.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\controllers\RemboursementController.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\services\DonServiceImpl.java
+C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\priority\RecalculPriorite.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\services\PersonneService.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\entities\Depense.java
 C:\Users\hp\Desktop\Projets ENSA\Projet de semestre\Sutura\src\main\java\in\sutura\controllers\EtudiantController.java

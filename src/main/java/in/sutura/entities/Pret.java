@@ -233,9 +233,5 @@ public class Pret {
 		return "Pret [id=" + id + ", raison=" + raison + ", montant=" + montant + ", periode=" + periode + ", etudiant="
 				+ etudiant + ", administrateur=" + administrateur + "]";
 	}
-
 	
-	
-	
-
 }

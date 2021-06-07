@@ -4,16 +4,16 @@ import in.sutura.entities.Pret;
 
 public class CalculPriorite {
 	
-	public static Pret Calcul(Pret p, int precision) {
-		int priorite = precision;
+	public static double calcul_priorite(Pret p) {
+		//un peu de traitement concernant les COMMENTAIRES liés aux demandes
+		//après, nous utiliserons l'intelligence artificielle pour évaluer 
+		//la pertinence du commentaire et d'affecter automatiquement une note sur 10.
+    	int precision = p.getCommentaire().length()/20;
+		double priorite = precision;
 		
-		p.setPriorite(priorite);
-		
-		
-		return p;
+		return priorite;
 		
 	}
 	
-	//IMPLEMENTER LES METHODES PRIVEES UTILISEES PAR Calcul(Pret p, int precision)
-
+		
 }

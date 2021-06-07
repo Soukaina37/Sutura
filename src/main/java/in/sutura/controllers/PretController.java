@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import in.sutura.entities.Caisse;
 import in.sutura.entities.Pret;
-import in.sutura.priority.CalculPriorite;
+import in.sutura.services.CaisseService;
 import in.sutura.services.PretService;
 
 /**
@@ -24,6 +25,13 @@ public class PretController {
     @Autowired
     public void setPretService(PretService pretService) {
         this.pretService = pretService;
+    }
+    
+    private CaisseService caisseService;
+    //private CalculPriorite calculPriorite;
+    @Autowired
+    public void setCaisseService(CaisseService caisseService) {
+        this.caisseService = caisseService;
     }
 
     /**
@@ -91,11 +99,16 @@ public class PretController {
      */
     @RequestMapping(value = "pret", method = RequestMethod.POST)
     public String savePret(Pret pret) {
+    	//CALCUL DE LA PRIORITE DU PRET
     	
-    	int precision = pret.getCommentaire().length();
-    	pret = CalculPriorite.Calcul(pret, precision);
-    	
-        pretService.savePret(pret);
+    	//appel de la méthode globale
+    	double priorite = pretService.calcul_priorite(pret);
+    	//puis on met la valeur dans l'objet
+    	pret.setPriorite(priorite);
+    	//ensuite on fait le classement du pret
+    	pretService.classement_priorite(pret);
+    	//enfin on persiste l'objet
+    	pretService.savePret(pret);
         return "redirect:/pret/" + pret.getId();
         
     }
@@ -110,6 +123,26 @@ public class PretController {
     public String delete(@PathVariable Long id) {
         pretService.deletePret(id);
         return "redirect:/prets";
+    }
+    
+    @RequestMapping(value = "pret", method = RequestMethod.POST)
+    public String terminerPret(Pret pret) {
+    	double montantActuelPret = pret.getMontant();
+    	Caisse caisse = pret.getCaisse();
+    	
+    	double nouveauMontantActuel =  caisse.getMontantActuel();
+    	nouveauMontantActuel -= montantActuelPret;
+    	
+    	caisse.setMontantActuel(nouveauMontantActuel);
+    	
+    	caisseService.update(caisse);
+    	
+    	//changement de l'état du pret en termine
+    	pret.setEtat("termine");
+    	pretService.update(pret);
+    	
+        return "redirect:/pret/" + pret.getId();
+        
     }
 
 }

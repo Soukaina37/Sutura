@@ -97,19 +97,21 @@ public class DepenseController {
      */
     @RequestMapping(value = "depense", method = RequestMethod.POST)
     public String saveDepense(Depense depense) {
-    	
+    	//modification des montants de la caisse lors de l'ajout d'une dépense
         double montant = depense.getMontant();
-        
         Caisse caisse =  depense.getCaisse();
+        
         double montantActuel = caisse.getMontantActuel();
         double montantCaisse = caisse.getMontantCaisse();
-        montantActuel =- montant;
-        montantCaisse =- montant;
+        
+        montantActuel -= montant;
+        montantCaisse -= montant;
+        
         caisse.setMontantActuel(montantActuel);
         caisse.setMontantCaisse(montantCaisse);
-        
+        //mise à jour de la caisse
         caisseService.update(caisse);
-        
+        //ajout de la dépense dans la base de données
         depenseService.saveDepense(depense);
         
         

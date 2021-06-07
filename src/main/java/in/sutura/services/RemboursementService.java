@@ -13,6 +13,10 @@ public interface RemboursementService {
     Remboursement saveRemboursement(Remboursement remboursement);
 
     void deleteRemboursement(Long id);
+    
     long countRemboursements();
+    
+    //méthode appelée lors du calcul de la priorite
+   // double montant_remboursement_proches();
 
 }

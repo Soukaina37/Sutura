@@ -2,8 +2,6 @@ package in.sutura.services;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,31 +42,34 @@ public class CaisseServiceImpl implements CaisseService {
 	    public long countCaisses() {
 	        return caisseRepository.count();
 	    }
-
-		@Override
-		public Caisse recalcul_montant_fromDepense(double montant, Caisse caisse) {
-			
-			double montantCaisse = caisse.getMontantCaisse();
-			montantCaisse = 400;
-			System.out.println(montantCaisse);
-			caisse.setMontantActuel(montantCaisse);
-			
-			double montantActuel = caisse.getMontantActuel();
-			saveCaisse(caisse);
-			montantActuel = 200;
-			System.out.println(montantActuel);
-			caisse.setMontantActuel(montantActuel);
-			
-			System.out.println(caisse);
-			saveCaisse(caisse);
-			return caisse;
-		}
-
+	    
 		@Override
 		public void update(Caisse caisse) {
 			Long id = caisse.getId();
 			caisseRepository.update(id, caisse);
 			
+		}
+
+		@Override
+		public boolean is_favorable(Caisse caisse) {
+			boolean isFavorable = false;
+			double montantCaisse = caisse.getMontantCaisse();
+			double montantActuel = caisse.getMontantActuel();
+			double seuil = caisse.getSeuil();
+			double rapport = montantCaisse/montantActuel;
+			if (rapport>seuil) {
+				isFavorable = true;
+			}
+			return isFavorable;
+		}
+		
+		//Revoir cette méthode
+		@Override
+		public double calcul_marge(Caisse caisse) {
+			double marge = 0;
+			double seuil = caisse.getSeuil();
+			marge = caisse.getMontantCaisse() - seuil*caisse.getMontantActuel();
+			return marge;
 		}
 	    
 }

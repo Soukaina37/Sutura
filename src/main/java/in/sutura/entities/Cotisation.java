@@ -119,8 +119,8 @@ public class Cotisation {
 		return caisse;
 	}
 
-	public void setCaisses(Caisse caisses) {
-		this.caisse = caisses;
+	public void setCaisse(Caisse caisse) {
+		this.caisse = caisse;
 	}
 
 	public boolean isJustificatif() {

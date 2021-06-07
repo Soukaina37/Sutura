@@ -16,7 +16,8 @@ import in.sutura.services.CaisseService;
  */
 @Controller
 public class CaisseController {
-	 private CaisseService caisseService;
+	
+	 	private CaisseService caisseService;
 
 	    @Autowired
 	    public void setCaisseService(CaisseService caisseService) {
