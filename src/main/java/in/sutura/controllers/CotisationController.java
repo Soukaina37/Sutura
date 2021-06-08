@@ -1,5 +1,6 @@
 package in.sutura.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Caisse;
 import in.sutura.entities.Cotisation;
+import in.sutura.entities.Pret;
 import in.sutura.services.CaisseService;
 import in.sutura.services.CotisationService;
 import in.sutura.services.PretService;
@@ -120,10 +122,10 @@ public class CotisationController {
         caisseService.update(caisse);
         //ajout de la cotisation dans la base de données
         cotisationService.saveCotisation(cotisation);
-/*        
+        
         //ON VERIFIE SI LA SITUATION EST FAVORABLE
         boolean isFavorable = caisseService.is_favorable(caisse);
-        
+        System.out.println(isFavorable);
         //calcul de la marge
         if (isFavorable) {
         	//On calcule la marge
@@ -138,6 +140,7 @@ public class CotisationController {
         		double priorite = pretService.recalcul_priorite(p);
         		p.setPriorite(priorite);
         		pretService.classement_priorite(p);
+        		System.out.println(priorite);
         	}
         	
         	//On fait appel à la même méthode pour récupérer la liste avec les nouvelles valeurs de priorité
@@ -161,8 +164,7 @@ public class CotisationController {
         		}
         	}
         	
-        }
-*/        
+        }       
         
         return "redirect:/cotisation/" + cotisation.getId();
     }
