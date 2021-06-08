@@ -1,5 +1,6 @@
 package in.sutura.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Caisse;
 import in.sutura.entities.Don;
+import in.sutura.entities.Pret;
 import in.sutura.services.CaisseService;
 import in.sutura.services.DonService;
 import in.sutura.services.PretService;
@@ -120,7 +122,7 @@ public class DonController {
         caisseService.update(caisse);
         //ajout de la dépense dans la base de données
         donService.saveDon(don);
-/*        
+        
         //ON VERIFIE SI LA SITUATION EST FAVORABLE
         boolean isFavorable = caisseService.is_favorable(caisse);
         
@@ -162,7 +164,7 @@ public class DonController {
         	}
         	
         }
-*/        
+        
         return "redirect:/don/" + don.getId();
     }
 

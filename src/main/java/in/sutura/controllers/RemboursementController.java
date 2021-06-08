@@ -1,5 +1,6 @@
 package in.sutura.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.sutura.entities.Caisse;
+import in.sutura.entities.Pret;
 import in.sutura.entities.Remboursement;
 import in.sutura.services.CaisseService;
 import in.sutura.services.PretService;
@@ -120,7 +122,7 @@ public class RemboursementController {
         caisseService.update(caisse);
         //Ajout de la cotisation dans la base de données
         remboursementService.saveRemboursement(remboursement);
-/*        
+        
       //ON VERIFIE SI LA SITUATION EST FAVORABLE
         boolean isFavorable = caisseService.is_favorable(caisse);
         
@@ -167,7 +169,7 @@ public class RemboursementController {
         //après faire une recherche concernant l'étudiant
         Pret pret = remboursement.getPret();
         pret.setEtatRemboursement(true);
-*/
+
         remboursementService.saveRemboursement(remboursement);
         return "redirect:/remboursement/" + remboursement.getId();
     }
