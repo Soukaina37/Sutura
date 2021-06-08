@@ -1,7 +1,9 @@
 package in.sutura.services;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -91,11 +93,13 @@ public class PretServiceImpl implements PretService {
 		Cotisation c1 = cotisations.get(cotisations.size()-1);
 		
 		int a = valeur_urgence(p);
-		//int b = valeur_remboursement_proche();
+		int b = valeur_remboursement_proche();
 		int c = valeur_montant(p);
 		int d = valeur_credibilite(p, c1, e1);
-		//int e = valeur_echeance(p);
-		int somme= a + c + d; //ajouter + b et + e
+		int e = valeur_echeance(p);
+		int somme= a + b + c + d + e;
+
+		System.out.println(somme);
 		priorite += somme; 
 		//-----------------------------------------------
 		return priorite;
@@ -128,18 +132,17 @@ public class PretServiceImpl implements PretService {
 			int valeur=0;
 			double montant = 0;
 			
-			/*
 			//On récupère la liste de tous les prêts qui sont à l'état termine and dont l'état de remboursement est false
 			List<Pret> prets = pretRepository.remboursement_proches();
+			
 			//Pour chaque prêt de la liste, on va vérifier si la date d'échéance est inférieure à 30 jours
 			for(Pret p: prets) {
 				Date echeance = p.getEcheance();
-				int jours = diffJours(echeance);
+				long jours = diffJours(echeance);
 				if(jours>30) {
 					montant+=p.getMontant();
 				}
 			}
-			*/
 			
 			//listes contient le montant total des prêts (non remboursés) à l'état terminé dont l'échéance de remboursement est au plutard dans 30 jours et dont l'état de paiement est "terminé"
 			//faire un select dans pretRepository: état=termine; etatRemboursement=false et échéance<30jours
@@ -235,37 +238,38 @@ public class PretServiceImpl implements PretService {
 			}
 			
 			//Fin d'année ou non
-			/*
-			 * if(avantAvril(p.getDateDemande())) { valeur+=1; }
-			 */
+			if(avantAvril(p.getDateDemande())) {
+				valeur+=1; 
+			}
 			
-			/*
 			//Si l'éventuel dernier remboursement concernant l'étudiant est effectué avant échéance
 			//Pour cela, on peut considérer directement les prets et non les remboursements
-			List<Pret> prets = new ArrayList<Pret>();
+			 
 			//Récupérer la liste des prets (dont etatRemboursement=true) concernant l'étudiant du plus ancien au plus récent
-			prets = pretRepository.findByEtudiantOrdonne(e);
-			Pret pret = prets.get(prets.size()-1);
-			boolean isIt = isDernierRemboursementAvantEcheanceByEtudiant(pret);
-			if(isIt) {
-				valeur+=4;
+			List<Pret> prets = pretRepository.findByEtudiantOrdonne(e);
+			int taille = prets.size();
+			if(taille!=0) {
+				Pret pret = prets.get(taille - 1);
+				
+				boolean isIt = isDernierRemboursementAvantEcheanceByEtudiant(pret);
+				if(isIt) {
+					valeur+=4;
+				}
 			}
-			*/
 			
 			return valeur;
-			
 		}
 
 		//E
-		/*
 		private int valeur_echeance(Pret p) {
-			int valeur=0;
+			int valeur = 0;
 			Date d = p.getEcheance();
-			int diff = diffJours(d);
-			if(diff<30) {
+			long diff = diffJours(d);
+			
+			if(diff<=30) {
 				valeur = 10;
 			}
-			if(diff>30 && diff<=60) {
+			else if(diff>30 && diff<=60) {
 				valeur=2;
 			}
 			else {
@@ -273,44 +277,34 @@ public class PretServiceImpl implements PretService {
 			}
 			
 			return valeur;
-			
 		}
-		*/
 		
 		
 		//IMPLEMENTATION DES SOUS-METHODES
-		private int diffJours(Date date) {
-			int days=0;
-			String format = "dd MM yyyy";
-			SimpleDateFormat parser = new java.text.SimpleDateFormat( format );
-			parser.format(date);
-			Date today = (Date) new java.util.Date();
-			parser.format(today);
-			long diff = today.getTime() - date.getTime();
-			days = (int) (diff / (1000*60*60*24));
+		private long diffJours(Date date) {
+			LocalDate localDate = date.toLocalDate();
+			
+			String maintenant = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+			long days= ChronoUnit.DAYS.between(LocalDate.parse(maintenant.toString()),LocalDate.parse(localDate.toString()));
+
 			return days;
 		}
 		
-		/*
-		
 		private boolean avantAvril(Date date) {
 			boolean is_avantAvril = false;
-			String format = "dd MM";
-			SimpleDateFormat parser = new java.text.SimpleDateFormat( format );
-			parser.format(date);
-													//DEMANDER AU PROF COMMENT INITIALISER UNE DATE A UN JOUR DONNE
-			Date avril = (Date) new java.util.Date();
-			String formatAvril = "01 04";
-			SimpleDateFormat parserAvril = new java.text.SimpleDateFormat( formatAvril );
-			parserAvril.format(avril);
 			
-			long diff = avril.getTime() - date.getTime();
-			if(diff>0) {
-				is_avantAvril=true;
+			LocalDate localDate = date.toLocalDate();
+			
+			//On va créer la date du 01/04 de l'année courante
+			int annee = localDate.getYear();
+			LocalDate avril = LocalDate.of( annee , 4 , 1 );
+			if(localDate.isBefore(avril)) {
+				is_avantAvril = true;
 			}
+			
 			return is_avantAvril;
 		}
-		*/
 		
 		private boolean isDernierRemboursementAvantEcheanceByEtudiant(Pret p) {
 			
@@ -355,28 +349,34 @@ public class PretServiceImpl implements PretService {
 			
 		}
 		
-		/*
+		//RECALCUL DE LA PRIORITE
 		@Override
 		public List<Pret> getList(Caisse caisse) {
 			return pretRepository.findAllForRecalcul();
 		}
-		*/
 		
-		//RECALCUL DE LA PRIORITE
-/*
 		@Override
 		public double recalcul_priorite(Pret p) {
-			//On modifie la date de modification
-			p.setDateModification(new Date());
+			
 			double nouvellePriorite = p.getPriorite();
 			nouvellePriorite += valeur_duree(p);
+			
+			//On modifie la date de modification
+			long miliseconds = System.currentTimeMillis();
+	        Date date = new Date(miliseconds);
+	        p.setDateModification(date);
+	        
 			return nouvellePriorite += valeur_remboursement_proche();
 		}
 		
 		private int valeur_duree(Pret p) {
+			
 			int valeur=0;
+			
 			Date d = p.getDateModification();
-			int diff= diffJours(d);//qui retourne le nombre de jours entre la date d et aujourd'hui --->Calcule la différence entre deux dates
+			
+			long diff= diffJours(d);//qui retourne le nombre de jours entre la date d et aujourd'hui --->Calcule la différence entre deux dates
+			
 			if(diff>30) {
 				valeur+=5;
 				Date today = new Date(diff);
@@ -387,9 +387,9 @@ public class PretServiceImpl implements PretService {
 				Date today = new Date(diff);
 				p.setDateModification(today);
 			}
+			
 			return valeur;
 			
 		}
-	
-	*/
+		
 }

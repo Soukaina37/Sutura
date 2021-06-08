@@ -1,5 +1,4 @@
 in\sutura\controllers\DepenseController.class
-in\sutura\priority\CalculPriorite.class
 in\sutura\services\EtudiantService.class
 in\sutura\services\CotisationService.class
 in\sutura\controllers\RemboursementController.class
@@ -17,14 +16,12 @@ in\sutura\entities\Personne.class
 in\sutura\entities\Depense.class
 in\sutura\controllers\CotisationController.class
 in\sutura\entities\Don.class
-in\sutura\priority\ClassementPriorite.class
 in\sutura\repositories\PretRepository.class
 in\sutura\services\EtudiantServiceImpl.class
 in\sutura\services\DepenseServiceImpl.class
 in\sutura\entities\Administrateur.class
 in\sutura\services\DepenseService.class
 in\sutura\services\PretServiceImpl.class
-in\sutura\priority\RecalculPriorite.class
 in\sutura\services\AdministrateurService.class
 in\sutura\services\CotisationServiceImpl.class
 in\sutura\repositories\DonRepository.class

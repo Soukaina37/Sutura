@@ -18,20 +18,20 @@ public interface PretService {
     
     long countPrets();
     
+    void update(Pret pret);
+    
     //CALCUL DE LA PRIORITE
     double calcul_priorite(Pret p);
     
     void classement_priorite(Pret p);
     
-    //double recalcul_priorite(Pret p);
-
-	void update(Pret pret);
+    double recalcul_priorite(Pret p);
+    
+    //RECALCUL DE LA PRIORITE
 	
 	//Obtenir la liste de tous les prêts concernant la même caisse 
 	//et qui ne sont pas termine et supprime
-	/*
 	List<Pret> getList(Caisse caisse);
-    */
     
 
 }
