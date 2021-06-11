@@ -1,5 +1,6 @@
 package in.sutura.controllers;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -123,11 +124,13 @@ public class RemboursementController {
         //Ajout de la cotisation dans la base de données
         remboursementService.saveRemboursement(remboursement);
         
-      //ON VERIFIE SI LA SITUATION EST FAVORABLE
+        //ON VERIFIE SI LA SITUATION EST FAVORABLE
         boolean isFavorable = caisseService.is_favorable(caisse);
         
         //calcul de la marge
         if (isFavorable) {
+        	//Passage à l'état élu
+			System.out.println("passage à l'état élu");
         	//On met à jour l'état de la caisse
 			caisse.setIsFavorable(true);
         	//On calcule la marge
@@ -152,6 +155,7 @@ public class RemboursementController {
         		if(p.getMontant()<marge) {
         			//Passage à l'état élu
         			p.setEtat("elu");
+        			p.setDateModification(new Date(System.currentTimeMillis()));
         			pretService.update(p);
         			marge -= p.getMontant();
         			//Pour chaque passage, on diminue le montantCaisse

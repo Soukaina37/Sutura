@@ -128,6 +128,8 @@ public class DonController {
         
         //calcul de la marge
         if (isFavorable) {
+        	//Passage à l'état élu
+			System.out.println("passage à l'état élu");
         	//On met à jour l'état de la caisse
 			caisse.setIsFavorable(true);
         	//On calcule la marge

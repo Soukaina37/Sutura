@@ -24,10 +24,10 @@ public class Pret {
 	private int periode;//correspond à l'année de la création de l'objet
 	private double priorite; //=0 si l'état est nouveau et sera modifiée après le premier calcul de la priorité
 	private boolean etatRemboursement;//par défaut false, et quand on crée un objet remboursement la valeur devient true
-	private Date dateTraitement;
+	private Date dateTraitement = new java.sql.Date(System.currentTimeMillis());
 	private Long RIB;
 	private Date echeance;//date laquelle l'étudiant prévoit de rembourser
-	private Date dateModification= new java.sql.Date(System.currentTimeMillis());//initialisé dès la création de l'objet
+	private Date dateModification = new java.sql.Date(System.currentTimeMillis());//initialisé dès la création de l'objet
 	private String commentaire;
 	
 	@ManyToOne

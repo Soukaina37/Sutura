@@ -13,7 +13,7 @@ public class Don {
 	@Id	  @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private double montant;
-	private Date date = new java.sql.Date(System.currentTimeMillis());;
+	private Date date = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
 	@JoinColumn(name="CODE_ADMIN")

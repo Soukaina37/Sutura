@@ -1,5 +1,6 @@
 package in.sutura.controllers;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -152,7 +153,9 @@ public class CotisationController {
         	for (Pret p : nouvelleListe) {
         		if(p.getMontant()<marge) {
         			//Passage à l'état élu
+        			System.out.println("passage à l'état élu");
         			p.setEtat("elu");
+        			p.setDateModification(new Date(System.currentTimeMillis()));
         			pretService.update(p);
         			marge -= p.getMontant();
         			//Pour chaque passage, on diminue le montantCaisse

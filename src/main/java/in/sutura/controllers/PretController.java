@@ -1,5 +1,7 @@
 package in.sutura.controllers;
 
+import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +111,59 @@ public class PretController {
     	pretService.classement_priorite(pret);
     	//enfin on persiste l'objet
     	pretService.savePret(pret);
+    	
+    	Caisse caisse =  pret.getCaisse();
+    	
+    	//lorsqu'on ajoute un nouveau prêt
+    	//ON VERIFIE SI LA SITUATION EST FAVORABLE
+        boolean isFavorable = caisseService.is_favorable(caisse);
+        System.out.println(isFavorable);
+        //calcul de la marge
+        if (isFavorable) {
+        	//On met à jour l'état de la caisse
+        	caisse.setIsFavorable(true);
+        	//On calcule la marge
+        	double marge = caisseService.calcul_marge(caisse);
+        	
+        	//On récupère la liste de prêts de la même période et qui ne sont pas termine par ORDRE DECROISSANTE DE PRIORITE
+        	List<Pret> liste = pretService.getList(caisse);
+        	
+        	//On fait le recalcule des priorités et le reclassement
+        	for(Pret p : liste) {
+        		pretService.recalcul_priorite(p);
+        		double nouvellePriorite = pretService.recalcul_priorite(p);
+        		p.setPriorite(nouvellePriorite);
+        		pretService.classement_priorite(p);
+        		System.out.println(nouvellePriorite);
+        	}
+        	
+        	//On fait appel à la même méthode pour récupérer la liste avec les nouvelles valeurs de priorité
+        	List<Pret> nouvelleListe = pretService.getList(caisse);
+        	
+        	//En commençant par le premier, on cherche si il peut être satisfait par la marge et ainsi de suite
+        	for (Pret p : nouvelleListe) {
+        		if(p.getMontant()<marge) {
+        			//Passage à l'état élu
+        			System.out.println("passage à l'état élu");
+        			//Passage à l'état élu
+        			p.setEtat("elu");
+        			p.setDateModification(new Date(System.currentTimeMillis()));
+        			pretService.update(p);
+        			marge -= p.getMontant();
+        			//Pour chaque passage, on diminue le montantCaisse
+        			double montantCaisse1 = caisse.getMontantCaisse();
+        			montantCaisse1 -= p.getMontant();
+        			caisse.setMontantCaisse(montantCaisse1);
+        			caisseService.update(caisse);
+        		}
+        		else {
+        			//On met à jour l'état de la caisse
+        			caisse.setIsFavorable(false);
+        			break;
+        		}
+        	}
+        }
+        	
         return "redirect:/pret/" + pret.getId();
         
     }
