@@ -128,10 +128,12 @@ public class CotisationController {
         System.out.println(isFavorable);
         //calcul de la marge
         if (isFavorable) {
+        	//On met à jour l'état de la caisse
+        	caisse.setIsFavorable(true);
         	//On calcule la marge
         	double marge = caisseService.calcul_marge(caisse);
         	
-        	//On récupère la liste de prêts de la même période et qui ne sont pas termine par ORDRE DECROISSANTE
+        	//On récupère la liste de prêts de la même période et qui ne sont pas termine par ORDRE DECROISSANTE DE PRIORITE
         	List<Pret> liste = pretService.getList(caisse);
         	
         	//On fait le recalcule des priorités et le reclassement
@@ -160,6 +162,8 @@ public class CotisationController {
         			caisseService.update(caisse);
         		}
         		else {
+        			//On met à jour l'état de la caisse
+        			caisse.setIsFavorable(false);
         			break;
         		}
         	}

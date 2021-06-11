@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 public class Pret {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date dateDemande;//de la création de l'objet
+	private Date dateDemande = new java.sql.Date(System.currentTimeMillis());//de la création de l'objet
 	private String raison;//liste déroulante (santé, alimentations, loyer, transport, autres)
 	private Boolean statutTraitement;
 	private String etat;//nouveau,prêt,bloqué,permuté, élu, terminé
@@ -27,7 +27,7 @@ public class Pret {
 	private Date dateTraitement;
 	private Long RIB;
 	private Date echeance;//date laquelle l'étudiant prévoit de rembourser
-	private Date dateModification;//initialisé dès la création de l'objet
+	private Date dateModification= new java.sql.Date(System.currentTimeMillis());//initialisé dès la création de l'objet
 	private String commentaire;
 	
 	@ManyToOne

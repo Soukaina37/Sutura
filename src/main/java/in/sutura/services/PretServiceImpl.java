@@ -63,10 +63,26 @@ public class PretServiceImpl implements PretService {
     public void deletePret(Long id) {
         pretRepository.deleteById(id);
     }
+    
     @Override
     public long countPrets() {
         return pretRepository.count();
     }
+    
+    @Override
+	public Iterable<Pret> listAllPretsElu() {
+		return pretRepository.findAllElu();
+	}
+
+	@Override
+	public Iterable<Pret> listAllPretsPret() {
+		return pretRepository.findAllPret();
+	}
+
+	@Override
+	public Iterable<Pret> listAllPretsAutres() {
+		return pretRepository.findAllEluAutres();
+	}
     
     //CALCUL DE LA PRIORITE
 
@@ -139,7 +155,7 @@ public class PretServiceImpl implements PretService {
 			for(Pret p: prets) {
 				Date echeance = p.getEcheance();
 				long jours = diffJours(echeance);
-				if(jours>30) {
+				if(jours<30) {
 					montant+=p.getMontant();
 				}
 			}
@@ -169,12 +185,12 @@ public class PretServiceImpl implements PretService {
 			int valeur = 0;
 			double montant = p.getMontant();
 			if(montant<=500) {
-				valeur=10;
+				valeur=20;
 			}
 			if(montant>500 && montant<=100) {
 				valeur=10;
 			}
-			if(montant>100) {
+			if(montant>1000) {
 				valeur=2;
 			}
 			
@@ -391,5 +407,5 @@ public class PretServiceImpl implements PretService {
 			return valeur;
 			
 		}
-		
+
 }

@@ -32,6 +32,12 @@ public interface PretService {
 	//Obtenir la liste de tous les prêts concernant la même caisse 
 	//et qui ne sont pas termine et supprime
 	List<Pret> getList(Caisse caisse);
+
+	Iterable<Pret> listAllPretsElu();
+
+	Iterable<Pret> listAllPretsPret();
+
+	Iterable<Pret> listAllPretsAutres();
     
 
 }

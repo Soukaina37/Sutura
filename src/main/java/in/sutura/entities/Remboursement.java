@@ -14,7 +14,7 @@ public class Remboursement {
 	private Long id;
 	//int id_pret; pour le trouver on fait une recherche sur les deux tables car un étudiant ne peut pas avoir deux prêts en même temps
 	private double montant;
-	private Date date;
+	private Date date = new java.sql.Date(System.currentTimeMillis());
 	private int periode;//correspond à l'année
 	private String type;//remboursement en entier ou partiel
 	private boolean statut=false;//true si c'est traité et false par défaut

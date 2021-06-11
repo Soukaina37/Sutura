@@ -128,6 +128,8 @@ public class DonController {
         
         //calcul de la marge
         if (isFavorable) {
+        	//On met à jour l'état de la caisse
+			caisse.setIsFavorable(true);
         	//On calcule la marge
         	double marge = caisseService.calcul_marge(caisse);
         	
@@ -159,6 +161,8 @@ public class DonController {
         			caisseService.update(caisse);
         		}
         		else {
+        			//On met à jour l'état de la caisse
+        			caisse.setIsFavorable(false);
         			break;
         		}
         	}

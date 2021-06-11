@@ -16,7 +16,7 @@ public class Cotisation {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private double montant;
-	private Date date;//Date de création de l'objet
+	private Date date = new java.sql.Date(System.currentTimeMillis());//Date de création de l'objet
 	private int periode;//par défaut c'est l'année
 	private Date expiration;//automatique qui correspond à la même de date de l'année suivant son inscription.
 	//boolean expired;//false par défaut et devient true si la date d'expiration est dépassée (voir si c'est utile)

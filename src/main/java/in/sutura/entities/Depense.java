@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 public class Depense {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date date;
+	private Date date = new java.sql.Date(System.currentTimeMillis());
 	private double montant;
 	private String description;
 	

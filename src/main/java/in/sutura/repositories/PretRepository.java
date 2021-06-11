@@ -34,5 +34,14 @@ public interface PretRepository extends JpaRepository<Pret, Long>{
 	
 	@Query("SELECT p from Pret p where p.etat != 'termine' AND p.etat != 'supprime' ORDER BY p.priorite DESC")
 	public List<Pret> findAllForRecalcul();
+
+	@Query("SELECT p from Pret p where p.etat = 'elu' ORDER BY p.priorite DESC")
+	public Iterable<Pret> findAllElu();
+
+	@Query("SELECT p from Pret p where p.etat = 'pret' ORDER BY p.priorite DESC")
+	public Iterable<Pret> findAllPret();
+
+	@Query("SELECT p from Pret p where p.etat != 'elu' AND p.etat != 'pret' ORDER BY p.priorite DESC")
+	public Iterable<Pret> findAllEluAutres();
 	
 }

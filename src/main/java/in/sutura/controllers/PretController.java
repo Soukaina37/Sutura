@@ -125,13 +125,29 @@ public class PretController {
         return "redirect:/prets";
     }
     
-    @RequestMapping(value = "terminerpret", method = RequestMethod.POST)
+    /**
+     * List all prets Ordered by etat.
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/decisions", method = RequestMethod.GET)
+    public String listDecision(Model model) {
+        model.addAttribute("elus", pretService.listAllPretsElu());
+        model.addAttribute("prets", pretService.listAllPretsPret());
+        model.addAttribute("autres", pretService.listAllPretsAutres());
+        System.out.println("Returning prets:");
+        return "decision";
+    }
+    
+    @RequestMapping(value = "pret/terminer/{id}")
     public String terminerPret(Pret pret) {
-    	double montantActuelPret = pret.getMontant();
+    	//on met à jour l'état actuel de la caisse car l'étudiant a reçu la somme demandée
+    	double montantPret = pret.getMontant();
     	Caisse caisse = pret.getCaisse();
     	
     	double nouveauMontantActuel =  caisse.getMontantActuel();
-    	nouveauMontantActuel -= montantActuelPret;
+    	nouveauMontantActuel -= montantPret;
     	
     	caisse.setMontantActuel(nouveauMontantActuel);
     	
@@ -139,6 +155,18 @@ public class PretController {
     	
     	//changement de l'état du pret en termine
     	pret.setEtat("termine");
+    	pretService.update(pret);
+    	
+        return "redirect:/pret/" + pret.getId();
+        
+    }
+    
+    //Supprimer un prêt, on ne change que son état 
+    //Pour supprimer dans la base de données, on va utiliser: pret/delete/{id}
+    @RequestMapping(value = "pret/supprimer/{id}")
+    public String supprimerPret(Pret pret) {
+    	//changement de l'état du pret en termine
+    	pret.setEtat("supprime");
     	pretService.update(pret);
     	
         return "redirect:/pret/" + pret.getId();
