@@ -47,8 +47,6 @@ public interface PretRepository extends JpaRepository<Pret, Long>{
 	@Query("SELECT p from Pret p where p.etat = 'termine' ORDER BY p.dateModification DESC")
 	public Iterable<Pret> findTermines();
 	
-	@Modifying
-	@Transactional
 	@Query("Select p from Pret p where p.etudiant = :x AND p.etatRemboursement = 'false' AND p.etat != 'supprime'")
 	public List<Pret> PretEnCours(@Param("x") Etudiant etudiant);
 	

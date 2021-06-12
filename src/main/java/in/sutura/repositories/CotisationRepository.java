@@ -17,8 +17,9 @@ import in.sutura.entities.Etudiant;
 public interface CotisationRepository extends JpaRepository<Cotisation, Long>{
 	@Query("SELECT c from Cotisation c where c.etudiant=:x ORDER BY date ASC")
 	public Optional<List<Cotisation>> findByEtudiant(@Param("x")Etudiant e1);
-	
-	//et non, pour avoir la liste par ordre
-	//public List<Cotisation> findByEtudiant(Etudiant e);
+
+	@Query("SELECT c from Cotisation c where c.etudiant=:x AND c.periode = :y ORDER BY date ASC")
+	public Optional<List<Cotisation>> findByEtudiantByPeriode(@Param("x")Etudiant e1, @Param("y")int periode);
+
 
 }

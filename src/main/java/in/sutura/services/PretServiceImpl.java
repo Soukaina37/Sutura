@@ -89,7 +89,7 @@ public class PretServiceImpl implements PretService {
 		return pretRepository.findTermines();
 	}
 	
-	//
+	//Voir si l'étudiant a un prêt en cours
 	@Override
 	public boolean aDejaUnPretEnCours(Etudiant etudiant) {
 		List<Pret> prets = pretRepository.PretEnCours(etudiant);
@@ -123,8 +123,8 @@ public class PretServiceImpl implements PretService {
 		
 		Optional<List<Cotisation>> cotisations = Optional.of(new ArrayList<Cotisation>());
 		
-		//Récupérer toutes les cotisations concernant l'étudiant de la plus ancienne à la plus récente
-		cotisations = cotisationRepository.findByEtudiant(e1);
+		int periode = 1;//à paramétrer
+		cotisations = cotisationRepository.findByEtudiantByPeriode(e1,periode);
 		
 		List<Cotisation> lesCotisations =  cotisations.get();
 		if(lesCotisations.size()!=0) {
