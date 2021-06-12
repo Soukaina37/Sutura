@@ -1,6 +1,9 @@
 package in.sutura.entities;
 
 public class Parametre {
+	
+	int periode = 1;
+	
 	//Paramètres pour le calcul de priorité
 	
 	int valeurUrgenceSante = 20;
