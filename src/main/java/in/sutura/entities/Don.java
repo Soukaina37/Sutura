@@ -98,6 +98,4 @@ public class Don {
 		this.bienfaiteur = bienfaiteur;
 	}
 	
-	
-
 }

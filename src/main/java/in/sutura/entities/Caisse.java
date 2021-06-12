@@ -17,6 +17,7 @@ public class Caisse {
 	private double seuil;
 	private double montantCaisse;
 	private double montantActuel;
+	private int periode = 1;
 	
 	@OneToMany(mappedBy="caisse",fetch = FetchType.LAZY)
 	private Collection <Don> dons;
@@ -72,6 +73,14 @@ public class Caisse {
 	public void setMontantActuel(double montantActuel) {
 		this.montantActuel = montantActuel;
 	}
+	
+	public int getPeriode() {
+		return periode;
+	}
+
+	public void setPeriode(int periode) {
+		this.periode = periode;
+	}
 
 	public Collection<Don> getDons() {
 		return dons;
@@ -120,9 +129,14 @@ public class Caisse {
 	@Override
 	public String toString() {
 		return "Caisse [id=" + id + ", isFavorable=" + isFavorable + ", seuil=" + seuil + ", montantCaisse="
-				+ montantCaisse + ", montantActuel=" + montantActuel + ", dons=" + dons + ", depenses=" + depenses
-				+ ", cotisations=" + cotisations + ", remboursements=" + remboursements + ", prets=" + prets + "]";
+				+ montantCaisse + ", montantActuel=" + montantActuel + ", periode=" + periode + "]";
 	}
+	
+	
+
+	
+
+	
 
 	
 

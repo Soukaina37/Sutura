@@ -43,6 +43,8 @@ public interface PretService {
 	Iterable<Pret> listAllPretsTermine();
 	// voir si un étudiant a déja un prêt en cours
 	boolean aDejaUnPretEnCours(Etudiant etudiant);
+
+	Iterable<Pret> listAllPretSupprimes();
     
 
 }

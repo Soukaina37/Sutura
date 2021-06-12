@@ -194,7 +194,7 @@ public class PretController {
     @RequestMapping("pret/delete/{id}")
     public String delete(@PathVariable Long id) {
         pretService.deletePret(id);
-        return "redirect:/prets";
+        return "supprimes";
     }
     
     /**
@@ -215,7 +215,6 @@ public class PretController {
     
     @RequestMapping(value = "pret/terminer/{id}", method = RequestMethod.GET)
     public String terminerPret(Optional<Pret> pret) {
-    	System.out.println(pret);
     	//on récupère l'objet pret
     	if (pret.isPresent()) {
     		Pret lePret = pret.get();
@@ -254,11 +253,33 @@ public class PretController {
     //Pour supprimer dans la base de données, on va utiliser: pret/delete/{id}
     @RequestMapping(value = "pret/supprimer/{id}")
     public String supprimerPret(Pret pret) {
-    	//changement de l'état du pret en termine
-    	pret.setEtat("supprime");
-    	pretService.update(pret);
-    	
-        return "redirect:/pret/" + pret.getId();
+    	Long id = pret.getId();
+    	Optional<Pret> nouveauPret = pretService.getPretById(id);
+    	Pret leNouveauPret = nouveauPret.get();
+    	//changement de l'état du pret en supprime
+    	leNouveauPret.setEtat("supprime");
+    	pretService.update(leNouveauPret);
+        return "redirect:/pret/" + leNouveauPret.getId();
+        
+    }
+    
+    @RequestMapping(value = "pret/restaurer/{id}")
+    public String restaurerPret(Pret pret) {
+    	Long id = pret.getId();
+    	Optional<Pret> nouveauPret = pretService.getPretById(id);
+    	Pret leNouveauPret = nouveauPret.get();
+    	//changement de l'état du pret en supprime
+    	leNouveauPret.setEtat("restaure");
+    	pretService.update(leNouveauPret);
+        return "redirect:/pret/" + leNouveauPret.getId();
+        
+    }
+    
+    @RequestMapping(value = "corbeille")
+    public String corbeille(Model model) {
+    	model.addAttribute("supprimes", pretService.listAllPretSupprimes());
+        System.out.println("Returning prets supprimés:");
+        return "supprimes";
         
     }
 

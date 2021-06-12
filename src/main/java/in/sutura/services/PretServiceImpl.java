@@ -89,6 +89,11 @@ public class PretServiceImpl implements PretService {
 		return pretRepository.findTermines();
 	}
 	
+	@Override
+	public Iterable<Pret> listAllPretSupprimes() {
+		return pretRepository.findSupprimes();
+	}
+	
 	//Voir si l'étudiant a un prêt en cours
 	@Override
 	public boolean aDejaUnPretEnCours(Etudiant etudiant) {
@@ -435,6 +440,4 @@ public class PretServiceImpl implements PretService {
 			return valeur;
 			
 		}
-		
-
 }

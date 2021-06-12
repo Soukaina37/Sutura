@@ -24,5 +24,7 @@ public interface CaisseService {
 		boolean is_favorable(Caisse caisse);
 
 		double calcul_marge(Caisse caisse);
+		
+		double calcul_chiffreAffaire(Caisse caisse);
 
 }

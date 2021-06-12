@@ -49,5 +49,8 @@ public interface PretRepository extends JpaRepository<Pret, Long>{
 	
 	@Query("Select p from Pret p where p.etudiant = :x AND p.etatRemboursement = 'false' AND p.etat != 'supprime'")
 	public List<Pret> PretEnCours(@Param("x") Etudiant etudiant);
+
+	@Query("SELECT p from Pret p where p.etat = 'supprime' ")
+	public Iterable<Pret> findSupprimes();
 	
 }

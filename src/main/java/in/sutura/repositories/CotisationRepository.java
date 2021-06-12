@@ -20,6 +20,8 @@ public interface CotisationRepository extends JpaRepository<Cotisation, Long>{
 
 	@Query("SELECT c from Cotisation c where c.etudiant=:x AND c.periode = :y ORDER BY date ASC")
 	public Optional<List<Cotisation>> findByEtudiantByPeriode(@Param("x")Etudiant e1, @Param("y")int periode);
-
-
+	
+	@Query("SELECT c from Cotisation c where c.caisse.id = :x ")
+	public List<Cotisation> findCotisationByCaisse(@Param("x")Long id);
+	
 }
