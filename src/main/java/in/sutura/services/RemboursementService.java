@@ -16,7 +16,4 @@ public interface RemboursementService {
     
     long countRemboursements();
     
-    //méthode appelée lors du calcul de la priorite
-   // double montant_remboursement_proches();
-
 }

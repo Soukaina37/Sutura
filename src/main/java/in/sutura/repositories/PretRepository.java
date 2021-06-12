@@ -30,7 +30,7 @@ public interface PretRepository extends JpaRepository<Pret, Long>{
 	List<Pret> findByEtudiantOrdonne(@Param("x") Etudiant e); 
 	
 	@Query("SELECT p from Pret p where p.etat = 'termine' AND p.etatRemboursement = 'false'")
-	public List<Pret> remboursement_proches();
+	public List<Pret> remboursementsAVenir();
 	
 	@Query("SELECT p from Pret p where p.etat != 'termine' AND p.etat != 'supprime' ORDER BY p.priorite DESC")
 	public List<Pret> findAllForRecalcul();

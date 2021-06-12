@@ -176,7 +176,7 @@ public class PretServiceImpl implements PretService {
 			double montant = 0;
 			
 			//On récupère la liste de tous les prêts qui sont à l'état termine and dont l'état de remboursement est false
-			List<Pret> prets = pretRepository.remboursement_proches();
+			List<Pret> prets = pretRepository.remboursementsAVenir();
 			
 			//Pour chaque prêt de la liste, on va vérifier si la date d'échéance est inférieure à 30 jours
 			for(Pret p: prets) {
@@ -214,7 +214,7 @@ public class PretServiceImpl implements PretService {
 			if(montant<=500) {
 				valeur=20;
 			}
-			if(montant>500 && montant<=100) {
+			if(montant>500 && montant<=1000) {
 				valeur=10;
 			}
 			if(montant>1000) {

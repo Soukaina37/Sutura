@@ -17,6 +17,7 @@ public class Caisse {
 	private double seuil;
 	private double montantCaisse;
 	private double montantActuel;
+	private double chiffreAffaire;
 	
 	@OneToMany(mappedBy="caisse",fetch = FetchType.LAZY)
 	private Collection <Don> dons;
@@ -113,6 +114,14 @@ public class Caisse {
 		this.prets = prets;
 	}
 	
+	public double getChiffreAffaire() {
+		return chiffreAffaire;
+	}
+
+	public void setChiffreAffaire(double chiffreAffaire) {
+		this.chiffreAffaire = chiffreAffaire;
+	}
+
 	public Caisse() {
 		super();
 	}
@@ -120,8 +129,10 @@ public class Caisse {
 	@Override
 	public String toString() {
 		return "Caisse [id=" + id + ", isFavorable=" + isFavorable + ", seuil=" + seuil + ", montantCaisse="
-				+ montantCaisse + ", montantActuel=" + montantActuel + "]";
+				+ montantCaisse + ", montantActuel=" + montantActuel + ", chiffreAffaire=" + chiffreAffaire + "]";
 	}
+
+	
 
 	
 	
