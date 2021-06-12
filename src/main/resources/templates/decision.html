@@ -49,7 +49,7 @@
 
 					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
 					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
-					<td><a th:href="${'/pret/terminerpret/' + pret.id}">Terminier</a></td>
+					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>
 			</table>
@@ -102,7 +102,7 @@
 
 					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
 					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
-					<td><a th:href="${'/pret/terminerpret/' + pret.id}">Terminier</a></td>
+					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>
 			</table>
@@ -153,7 +153,58 @@
 
 					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
 					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
-					<td><a th:href="${'/pret/terminerpret/' + pret.id}">Terminier</a></td>
+					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
+					
+				</tr>
+			</table>
+
+		</div>
+		
+		<div th:if="${not #lists.isEmpty(termines)}">
+			<h2>Liste des prêts TERMINES</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Etudiant</th>
+					<th>Etat</th>
+					<th>Montant</th>
+					<th>Modification</th>
+					<th>Periode</th>
+					<th>Priorite</th>
+					<th>Raison</th>
+					<th>RIB</th>
+					<th>Etat Remboursement</th>
+					<th>Date</th>
+					<th>Echeance</th>
+					<th>Dernier traitement</th>
+					<th>Code Caisse</th>
+					<th>Justificatif</th>
+
+					<th>View</th>
+					<th>Supprimer</th>
+					<th>Terminer</th>
+				</tr>
+				<tr th:each="pret : ${termines}">
+					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
+					<td th:text="${pret.etudiant}">Nom étudiant</td>
+					<td th:text="${pret.etat}">Etat</td>
+					<td th:text="${pret.montant}">Montant</td>
+					<td th:text="${pret.dateModification}">Modification</td>
+					<td th:text="${pret.periode}">Periode</td>
+					<td th:text="${pret.priorite}">Priorité</td>
+					<td th:text="${pret.raison}">Raison</td>
+					<td th:text="${pret.RIB}">RIB</td>
+					<td th:text="${pret.etatRemboursement}">Etat Remboursement</td>
+					<td th:text="${pret.dateDemande}">Date</td>
+					<td th:text="${pret.echeance}">Echeance</td>
+					<td th:text="${pret.dateTraitement}">Dernier traitement</td>
+					<td th:text="${pret.caisse}">Code Caisse</td>
+					<td th:text="${pret.justificatif}">Justificatif</td>
+
+
+					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
+					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
+					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>
 			</table>

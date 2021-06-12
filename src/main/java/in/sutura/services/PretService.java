@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import in.sutura.entities.Caisse;
+import in.sutura.entities.Etudiant;
 import in.sutura.entities.Pret;
 
 public interface PretService {
@@ -38,6 +39,10 @@ public interface PretService {
 	Iterable<Pret> listAllPretsPret();
 
 	Iterable<Pret> listAllPretsAutres();
+
+	Iterable<Pret> listAllPretsTermine();
+	// voir si un étudiant a déja un prêt en cours
+	boolean aDejaUnPretEnCours(Etudiant etudiant);
     
 
 }

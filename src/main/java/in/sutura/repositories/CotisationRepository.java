@@ -1,6 +1,7 @@
 package in.sutura.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,7 +16,7 @@ import in.sutura.entities.Etudiant;
 @Service
 public interface CotisationRepository extends JpaRepository<Cotisation, Long>{
 	@Query("SELECT c from Cotisation c where c.etudiant=:x ORDER BY date ASC")
-	public List<Cotisation> findByEtudiant(@Param("x")Etudiant e1);
+	public Optional<List<Cotisation>> findByEtudiant(@Param("x")Etudiant e1);
 	
 	//et non, pour avoir la liste par ordre
 	//public List<Cotisation> findByEtudiant(Etudiant e);

@@ -71,17 +71,38 @@ public class PretServiceImpl implements PretService {
     
     @Override
 	public Iterable<Pret> listAllPretsElu() {
-		return pretRepository.findAllElu();
+		return pretRepository.findElu();
 	}
 
 	@Override
 	public Iterable<Pret> listAllPretsPret() {
-		return pretRepository.findAllPret();
+		return pretRepository.findPret();
 	}
 
 	@Override
 	public Iterable<Pret> listAllPretsAutres() {
-		return pretRepository.findAllEluAutres();
+		return pretRepository.findAutres();
+	}
+	
+	@Override
+	public Iterable<Pret> listAllPretsTermine() {
+		return pretRepository.findTermines();
+	}
+	
+	//
+	@Override
+	public boolean aDejaUnPretEnCours(Etudiant etudiant) {
+		List<Pret> prets = pretRepository.PretEnCours(etudiant);
+		for(Pret p: prets) {
+			System.out.println(p);
+		}
+		if(prets.isEmpty()) {
+			return false;
+		}
+		else {
+			return true;
+		}
+			
 	}
     
     //CALCUL DE LA PRIORITE
@@ -100,25 +121,31 @@ public class PretServiceImpl implements PretService {
 		Etudiant e1 = new Etudiant();
 		e1 = p.getEtudiant();
 		
-		List<Cotisation> cotisations = new ArrayList<Cotisation>();
+		Optional<List<Cotisation>> cotisations = Optional.of(new ArrayList<Cotisation>());
 		
 		//Récupérer toutes les cotisations concernant l'étudiant de la plus ancienne à la plus récente
 		cotisations = cotisationRepository.findByEtudiant(e1);
 		
-		//Récupérer la dernière cotisation concernant un étudiant
-		Cotisation c1 = cotisations.get(cotisations.size()-1);
-		
-		int a = valeur_urgence(p);
-		int b = valeur_remboursement_proche();
-		int c = valeur_montant(p);
-		int d = valeur_credibilite(p, c1, e1);
-		int e = valeur_echeance(p);
-		int somme= a + b + c + d + e;
-
-		System.out.println(somme);
-		priorite += somme; 
-		//-----------------------------------------------
-		return priorite;
+		List<Cotisation> lesCotisations =  cotisations.get();
+		if(lesCotisations.size()!=0) {
+			//Récupérer la dernière cotisation concernant un étudiant
+			Cotisation c1 = lesCotisations.get(lesCotisations.size()-1);
+			int a = valeur_urgence(p);
+			int b = valeur_remboursement_proche();
+			int c = valeur_montant(p);
+			int d = valeur_credibilite(p, c1, e1);
+			int e = valeur_echeance(p);
+			int somme= a + b + c + d + e;
+			
+			System.out.println(somme);
+			priorite += somme; 
+			//-----------------------------------------------
+			return priorite;
+		}
+		else {
+			//l'étudiant n'a pas encore cotisé
+			return 0;
+		}
 	}
 	
 	//METHODES PRIVEES LIEES AU CALCUL DE LA PRIORITE
@@ -217,10 +244,11 @@ public class PretServiceImpl implements PretService {
 			}
 			
 			//Critère de l'ancienneté <=> au nombre total de cotisations
-			List<Cotisation> cotisations = new ArrayList<Cotisation>();
+			Optional<List<Cotisation>> cotisations = Optional.of(new ArrayList<Cotisation>());
 			//Récupérer toutes les cotisations concernant l'étudiant
+			List<Cotisation> lesCotisations = cotisations.get();
 			cotisations = cotisationRepository.findByEtudiant(e);
-			int anciennete = cotisations.size();
+			int anciennete = lesCotisations.size();
 			if(anciennete>=4) {
 				valeur+=4;
 			}
@@ -407,5 +435,6 @@ public class PretServiceImpl implements PretService {
 			return valeur;
 			
 		}
+		
 
 }
