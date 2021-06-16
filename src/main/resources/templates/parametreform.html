@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Modifier les paramètres</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<h2>Modifier les paramètres</h2>
+		<div>
+			<form class="form-horizontal" th:object="${parametre}"
+				th:action="@{/parametres/save}" method="post">
+				<div class="form-group" th:if="${flag!=null}">
+					<label class="col-sm-2 control-label">Id:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Période:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{periode}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur Urgence santé:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurUrgenceSante}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur urgence alimentation:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurUrgenceAlimentation}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur urgence loyer:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurUrgenceLoyer}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur urgence transport:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurUrgenceTransport}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur remboursements proches supérieure à 4000:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurRemboursementProcheSup4000}" />
+					</div>
+				</div>
+				<div class="form-group" th:if="${flag!=null}" >
+					<label class="col-sm-2 control-label">Valeur remboursements proches entre 3000 et 4000:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurRemboursementProcheEntre3000et4000}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur remboursements proches entre 2000 et 3000:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurRemboursementProcheEntre2000et3000}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur remboursements proches inférieure à 1000:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurRemboursementProcheInf1000}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur montant du prêt inférieure à 500 DH:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurMontantPretInf500}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur montant du prêt entre 500 et 1000 DH:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurMontantPretEntre500et1000}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valeur montant prêt supérieure à 1000:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurMontantPretSup1000}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nombre de remboursements supérieur à 2:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombreRemboursementSup2}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nombre de remboursements = 1:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombreRemboursementEq1}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">L'étudiant à jamais effectué de prêt:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombreRemboursementElse}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Ancienneté supérieure à 4 ans:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{ancienneteSup4}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Ancienneté entre 2 et 3 ans:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{ancienneteEntre2Et3}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Ancienneté inférieure à 2 ans:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{ancienneteInf2}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">S'il s'agit d'un homme:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{genreHomme}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">S'il s'agit d'une femme:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{genreFemme}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si l'étudiant a passé moins de 2 ans au Maroc:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombreAnneeMarocInf2}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si l'étudiant a passé plus de 2 ans au Maroc:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nombreAnneeElse}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si le dernier remboursement éventuel de l'étudiant a été fait avant échéance:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{dernierRemboursementAvantEcheance}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si l'étudiant compte rembourser dans moins de 30 jours:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurEcheanceInf30}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si l'étudiant compte rembourser entre 30 et 60 jours:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurEcheanceEntre30Et60}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Si l'étudiant compte rembourser dans plus de deux mois:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{valeurEcheanceElse}" />
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-default">Modifier</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

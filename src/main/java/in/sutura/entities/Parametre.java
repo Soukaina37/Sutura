@@ -1,6 +1,21 @@
 package in.sutura.entities;
 
-public class Parametre {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Parametre implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name="id", unique=true, nullable=false)
+    private Long id; 
 	
 	int periode = 1;
 	
@@ -17,8 +32,8 @@ public class Parametre {
 	int valeurRemboursementProcheInf1000 = 1;
 	
 	int valeurMontantPretInf500 = 20;
-	int valeurMontantPretEntre5000et1000 = 20;
-	int valeurMontantPretSup1000 = 20;
+	int valeurMontantPretEntre500et1000 = 10;
+	int valeurMontantPretSup1000 = 2;
 	
 	int nombreRemboursementSup2 = 4;
 	int nombreRemboursementEq1 = 2;
@@ -29,9 +44,9 @@ public class Parametre {
 	int ancienneteInf2 = 1;
 	
 	int genreHomme = 1;
-	int gnereFemme = 2;
+	int genreFemme = 2;
 	
-	int nombreAnneeMarocInf = 2;
+	int nombreAnneeMarocInf2 = 2;
 	int nombreAnneeElse = 0;
 	
 	int dernierRemboursementAvantEcheance = 4;
@@ -45,7 +60,6 @@ public class Parametre {
 	
 	int valeurDureeSup30 = 5;
 	int valeurDureeEntre15Et30 = 2;
-	
 	
 	public int getValeurUrgenceSante() {
 		return valeurUrgenceSante;
@@ -101,12 +115,6 @@ public class Parametre {
 	public void setValeurMontantPretInf500(int valeurMontantPretInf500) {
 		this.valeurMontantPretInf500 = valeurMontantPretInf500;
 	}
-	public int getValeurMontantPretEntre5000et1000() {
-		return valeurMontantPretEntre5000et1000;
-	}
-	public void setValeurMontantPretEntre5000et1000(int valeurMontantPretEntre5000et1000) {
-		this.valeurMontantPretEntre5000et1000 = valeurMontantPretEntre5000et1000;
-	}
 	public int getValeurMontantPretSup1000() {
 		return valeurMontantPretSup1000;
 	}
@@ -155,17 +163,36 @@ public class Parametre {
 	public void setGenreHomme(int genreHomme) {
 		this.genreHomme = genreHomme;
 	}
-	public int getGnereFemme() {
-		return gnereFemme;
+	
+	public int getValeurMontantPretEntre500et1000() {
+		return valeurMontantPretEntre500et1000;
 	}
-	public void setGnereFemme(int gnereFemme) {
-		this.gnereFemme = gnereFemme;
+	public void setValeurMontantPretEntre500et1000(int valeurMontantPretEntre500et1000) {
+		this.valeurMontantPretEntre500et1000 = valeurMontantPretEntre500et1000;
 	}
-	public int getNombreAnneeMarocInf() {
-		return nombreAnneeMarocInf;
+	public int getGenreFemme() {
+		return genreFemme;
 	}
-	public void setNombreAnneeMarocInf(int nombreAnneeMarocInf) {
-		this.nombreAnneeMarocInf = nombreAnneeMarocInf;
+	public void setGenreFemme(int genreFemme) {
+		this.genreFemme = genreFemme;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public int getPeriode() {
+		return periode;
+	}
+	public void setPeriode(int periode) {
+		this.periode = periode;
+	}
+	public int getNombreAnneeMarocInf2() {
+		return nombreAnneeMarocInf2;
+	}
+	public void setNombreAnneeMarocInf2(int nombreAnneeMarocInf2) {
+		this.nombreAnneeMarocInf2 = nombreAnneeMarocInf2;
 	}
 	public int getNombreAnneeElse() {
 		return nombreAnneeElse;
@@ -213,28 +240,6 @@ public class Parametre {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Parametre [valeurUrgenceSante=" + valeurUrgenceSante + ", valeurUrgenceAlimentation="
-				+ valeurUrgenceAlimentation + ", valeurUrgenceLoyer=" + valeurUrgenceLoyer + ", valeurUrgenceTransport="
-				+ valeurUrgenceTransport + ", valeurRemboursementProcheSup4000=" + valeurRemboursementProcheSup4000
-				+ ", valeurRemboursementProcheEntre3000et4000=" + valeurRemboursementProcheEntre3000et4000
-				+ ", valeurRemboursementProcheEntre2000et3000=" + valeurRemboursementProcheEntre2000et3000
-				+ ", valeurRemboursementProcheInf1000=" + valeurRemboursementProcheInf1000
-				+ ", valeurMontantPretInf500=" + valeurMontantPretInf500 + ", valeurMontantPretEntre5000et1000="
-				+ valeurMontantPretEntre5000et1000 + ", valeurMontantPretSup1000=" + valeurMontantPretSup1000
-				+ ", nombreRemboursementSup2=" + nombreRemboursementSup2 + ", nombreRemboursementEq1="
-				+ nombreRemboursementEq1 + ", nombreRemboursementElse=" + nombreRemboursementElse + ", ancienneteSup4="
-				+ ancienneteSup4 + ", ancienneteEntre2Et3=" + ancienneteEntre2Et3 + ", ancienneteInf2=" + ancienneteInf2
-				+ ", genreHomme=" + genreHomme + ", gnereFemme=" + gnereFemme + ", nombreAnneeMarocInf="
-				+ nombreAnneeMarocInf + ", nombreAnneeElse=" + nombreAnneeElse + ", dernierRemboursementAvantEcheance="
-				+ dernierRemboursementAvantEcheance + ", valeurEcheanceInf30=" + valeurEcheanceInf30
-				+ ", valeurEcheanceEntre30Et60=" + valeurEcheanceEntre30Et60 + ", valeurEcheanceElse="
-				+ valeurEcheanceElse + ", valeurDureeSup30=" + valeurDureeSup30 + ", valeurDureeEntre15Et30="
-				+ valeurDureeEntre15Et30 + "]";
-	}
-	
-	
 	
 	
 	

@@ -24,7 +24,7 @@ import in.sutura.services.PretService;
 public class PretController {
 
     private PretService pretService;
-    //private CalculPriorite calculPriorite;
+    
     @Autowired
     public void setPretService(PretService pretService) {
         this.pretService = pretService;
@@ -75,9 +75,9 @@ public class PretController {
       	 if( pret.isPresent() ) {
                model.addAttribute("pret", pret.get());
                model.addAttribute("flag", "il faut afficher l'ID");
-      }
+      	 }
       	 return "pretform";
-       }
+     }
 
     /**
      * New pret.

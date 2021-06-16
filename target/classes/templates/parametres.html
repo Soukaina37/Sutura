@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Gestion de Sutura</title>
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div><a href="/parametres/update"><h3>Modifier</h3></a></div>
+			<div>
+			<h2>ID:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+				</tr>
+				<tr>
+					<td th:text="${parametre.id}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>L'attribut période:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>Période</td>
+					<td>Il informe la période surlaquelle est appliquée les valeurs:</td>
+					<td th:text="${parametre.periode}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés à la catégorie</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>ValeurUrgenceSanté</td>
+					<td>Evaluation donnée pour les demandes liées à la santé</td>
+					<td th:text="${parametre.valeurUrgenceSante}">Nombre</td>
+				</tr>
+				<tr>
+					<td>ValeurUrgenceAlimentation</td>
+					<td>Evaluation donnée pour les demandes liées à l'alimentation</td>
+					<td th:text="${parametre.valeurUrgenceAlimentation}">Nombre</td>
+				</tr>
+				<tr>
+					<td>ValeurUrgenceLoyer</td>
+					<td>Evaluation donnée pour les demandes liées au loyer</td>
+					<td th:text="${parametre.valeurUrgenceLoyer}">Nombre</td>
+				</tr>
+				<tr>
+					<td>ValeurUrgenceTransport</td>
+					<td>Evaluation donnée pour les demandes liées au transport</td>
+					<td th:text="${parametre.valeurUrgenceTransport}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés à la valeur des remboursements à échéance proche (-30 jours):</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>valeurRemboursementProcheSup4000</td>
+					<td>Montant supérieur à 4000</td>
+					<td th:text="${parametre.valeurRemboursementProcheSup4000}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurRemboursementProcheEntre3000et4000</td>
+					<td>Montant entre 3000 et 4000</td>
+					<td th:text="${parametre.valeurRemboursementProcheEntre3000et4000}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurRemboursementProcheEntre2000et3000</td>
+					<td>Montant entre 2000 et 3000</td>
+					<td th:text="${parametre.valeurRemboursementProcheEntre2000et3000}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurRemboursementProcheInf1000</td>
+					<td>Montant inférieur à 1000</td>
+					<td th:text="${parametre.valeurRemboursementProcheInf1000}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés au montant demandé:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>valeurMontantPretInf500</td>
+					<td>Montant prêt inférieur à 500</td>
+					<td th:text="${parametre.valeurMontantPretInf500}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurMontantPretEntre500et1000</td>
+					<td>Montant prêt entre 500 et 1000</td>
+					<td th:text="${parametre.valeurMontantPretEntre500et1000}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurMontantPretSup1000</td>
+					<td>Montant prêt supéieur à 1000</td>
+					<td th:text="${parametre.valeurMontantPretSup1000}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés au nombre de remboursements par l'étudiant:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>nombreRemboursementSup2</td>
+					<td>Nombre de remboursement >2</td>
+					<td th:text="${parametre.nombreRemboursementSup2}">Nombre</td>
+				</tr>
+				<tr>
+					<td>nombreRemboursementEq1</td>
+					<td>Nombre de remboursement = 1</td>
+					<td th:text="${parametre.nombreRemboursementEq1}">Nombre</td>
+				</tr>
+				<tr>
+					<td>nombreRemboursementElse</td>
+					<td>Si l'étudiant n'a jamais fait de remboursement</td>
+					<td th:text="${parametre.nombreRemboursementElse}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés à l'ancienneté de l'étudiant:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>ancienneteSup4</td>
+					<td>Si l'étudiant a une ancienneté >= 4</td>
+					<td th:text="${parametre.ancienneteSup4}">Nombre</td>
+				</tr>
+				<tr>
+					<td>ancienneteEntre2Et3</td>
+					<td>Si l'étudiant a une ancienneté de 2 ou 3 ans</td>
+					<td th:text="${parametre.ancienneteEntre2Et3}">Nombre</td>
+				</tr>
+				<tr>
+					<td>ancienneteInf2</td>
+					<td>Si l'étudiant est à sa première participation</td>
+					<td th:text="${parametre.ancienneteInf2}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés au genre:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>genreHomme</td>
+					<td>S'il s'agit d'un homme</td>
+					<td th:text="${parametre.genreHomme}">Nombre</td>
+				</tr>
+				<tr>
+					<td>genreFemme</td>
+					<td>S'il s'agit d'une femme</td>
+					<td th:text="${parametre.genreFemme}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés au nombre d'années au Maroc:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>nombreAnneeMarocInf</td>
+					<td>Si le nombre d'années au Maroc est inférieur ou égal à 2 </td>
+					<td th:text="${parametre.nombreAnneeMarocInf2}">Nombre</td>
+				</tr>
+				<tr>
+					<td>nombreAnneeElse</td>
+					<td>Si l'étudiant a fait plus de 2 ans au Maroc</td>
+					<td th:text="${parametre.nombreAnneeElse}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Le Paramètre qui fait référence au dernier remboursement:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>dernierRemboursementAvantEcheance</td>
+					<td>Si l'éventuel dernier remboursement de l'étudiant a été fait avant échéance</td>
+					<td th:text="${parametre.dernierRemboursementAvantEcheance}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés à l'échéance du prêt courant:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>valeurEcheanceInf30</td>
+					<td>Si l'échéance est dans moins de 30 jours</td>
+					<td th:text="${parametre.valeurEcheanceInf30}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurEcheanceEntre30Et60</td>
+					<td>Si l'échéance est entre 30 et 60 jours</td>
+					<td th:text="${parametre.valeurEcheanceEntre30Et60}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurEcheanceElse</td>
+					<td>Si la valeur de l'échéance est dans plus de 60 jours</td>
+					<td th:text="${parametre.valeurEcheanceElse}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h2>Les Paramètres liés à la durée pour le recalcul de la priorité:</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Paramètres:</th>
+					<th>Sens</th>
+					<th>Valeur actuelle</th>
+				</tr>
+				<tr>
+					<td>valeurDureeSup30</td>
+					<td>Si la date de la dernière modification du prêt est supérieur à 30 jours</td>
+					<td th:text="${parametre.valeurDureeSup30}">Nombre</td>
+				</tr>
+				<tr>
+					<td>valeurDureeEntre15Et30</td>
+					<td>Si la date de la dernière modification du prêt est entre 15 et 30 jours</td>
+					<td th:text="${parametre.valeurDureeEntre15Et30}">Nombre</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -431,7 +431,7 @@ public class PretServiceImpl implements PretService {
 				Date today = new Date(diff);
 				p.setDateModification(today);
 			}
-			if(diff<15 && diff<=30) {
+			if(diff>15 && diff<=30) {
 				valeur+=2;
 				Date today = new Date(diff);
 				p.setDateModification(today);
