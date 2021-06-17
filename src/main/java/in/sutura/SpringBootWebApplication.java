@@ -30,7 +30,7 @@ public class SpringBootWebApplication implements CommandLineRunner {
 		
 		p.setValeurRemboursementProcheSup4000(10);
 		p.setValeurRemboursementProcheEntre3000et4000(6);
-		p.setValeurRemboursementProcheEntre2000et3000(3);
+		p.setValeurRemboursementProcheEntre1000et3000(3);
 		p.setValeurRemboursementProcheInf1000(1);
 		
 		p.setValeurMontantPretInf500(20);

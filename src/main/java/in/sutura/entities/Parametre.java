@@ -28,7 +28,7 @@ public class Parametre implements Serializable {
 	
 	int valeurRemboursementProcheSup4000 = 10;
 	int valeurRemboursementProcheEntre3000et4000 = 6;
-	int valeurRemboursementProcheEntre2000et3000 = 3;
+	int valeurRemboursementProcheEntre1000et3000 = 3;
 	int valeurRemboursementProcheInf1000 = 1;
 	
 	int valeurMontantPretInf500 = 20;
@@ -49,6 +49,8 @@ public class Parametre implements Serializable {
 	int nombreAnneeMarocInf2 = 2;
 	int nombreAnneeElse = 0;
 	
+	int isAvantAvril=1;
+	
 	int dernierRemboursementAvantEcheance = 4;
 	
 	int valeurEcheanceInf30 = 10;
@@ -61,6 +63,19 @@ public class Parametre implements Serializable {
 	int valeurDureeSup30 = 5;
 	int valeurDureeEntre15Et30 = 2;
 	
+	
+	public int getValeurRemboursementProcheEntre1000et3000() {
+		return valeurRemboursementProcheEntre1000et3000;
+	}
+	public void setValeurRemboursementProcheEntre1000et3000(int valeurRemboursementProcheEntre1000et3000) {
+		this.valeurRemboursementProcheEntre1000et3000 = valeurRemboursementProcheEntre1000et3000;
+	}
+	public int getIsAvantAvril() {
+		return isAvantAvril;
+	}
+	public void setIsAvantAvril(int isAvantAvril) {
+		this.isAvantAvril = isAvantAvril;
+	}
 	public int getValeurUrgenceSante() {
 		return valeurUrgenceSante;
 	}
@@ -97,12 +112,7 @@ public class Parametre implements Serializable {
 	public void setValeurRemboursementProcheEntre3000et4000(int valeurRemboursementProcheEntre3000et4000) {
 		this.valeurRemboursementProcheEntre3000et4000 = valeurRemboursementProcheEntre3000et4000;
 	}
-	public int getValeurRemboursementProcheEntre2000et3000() {
-		return valeurRemboursementProcheEntre2000et3000;
-	}
-	public void setValeurRemboursementProcheEntre2000et3000(int valeurRemboursementProcheEntre2000et3000) {
-		this.valeurRemboursementProcheEntre2000et3000 = valeurRemboursementProcheEntre2000et3000;
-	}
+	
 	public int getValeurRemboursementProcheInf1000() {
 		return valeurRemboursementProcheInf1000;
 	}

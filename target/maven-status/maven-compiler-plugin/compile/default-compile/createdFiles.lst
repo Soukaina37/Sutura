@@ -11,6 +11,7 @@ in\sutura\services\CaisseServiceImpl.class
 in\sutura\repositories\EtudiantRepository.class
 in\sutura\services\CaisseService.class
 in\sutura\services\DonService.class
+in\sutura\services\ParametreService.class
 in\sutura\controllers\AdministrateurController.class
 in\sutura\entities\Personne.class
 in\sutura\entities\Depense.class
@@ -21,6 +22,7 @@ in\sutura\services\EtudiantServiceImpl.class
 in\sutura\services\DepenseServiceImpl.class
 in\sutura\entities\Administrateur.class
 in\sutura\services\DepenseService.class
+in\sutura\services\ParametreServiceImp.class
 in\sutura\services\PretServiceImpl.class
 in\sutura\services\AdministrateurService.class
 in\sutura\services\CotisationServiceImpl.class
@@ -28,6 +30,7 @@ in\sutura\repositories\DonRepository.class
 in\sutura\services\PretService.class
 in\sutura\repositories\RemboursementRepository.class
 in\sutura\services\DonServiceImpl.class
+in\sutura\controllers\ParametreController.class
 in\sutura\entities\Pret.class
 in\sutura\services\PersonneServiceImpl.class
 in\sutura\repositories\DepenseRepository.class
@@ -36,6 +39,7 @@ in\sutura\controllers\EtudiantController.class
 in\sutura\controllers\PretController.class
 in\sutura\services\RemboursementServiceImpl.class
 in\sutura\controllers\IndexController.class
+in\sutura\entities\Parametre.class
 in\sutura\entities\Donateur.class
 in\sutura\services\RemboursementService.class
 in\sutura\entities\Remboursement.class
@@ -46,3 +50,4 @@ in\sutura\services\AdministrateurServiceImpl.class
 in\sutura\repositories\CotisationRepository.class
 in\sutura\entities\Etudiant.class
 in\sutura\controllers\DonController.class
+in\sutura\repositories\ParametreRepository.class

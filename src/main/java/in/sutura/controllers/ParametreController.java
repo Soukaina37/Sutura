@@ -2,7 +2,6 @@ package in.sutura.controllers;
 
 import java.util.Optional;
 
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

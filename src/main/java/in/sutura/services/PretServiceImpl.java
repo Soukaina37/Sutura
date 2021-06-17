@@ -17,6 +17,7 @@ import in.sutura.entities.Etudiant;
 import in.sutura.entities.Pret;
 import in.sutura.entities.Remboursement;
 import in.sutura.repositories.CotisationRepository;
+import in.sutura.repositories.ParametreRepository;
 import in.sutura.repositories.PretRepository;
 import in.sutura.repositories.RemboursementRepository;
 
@@ -42,6 +43,13 @@ public class PretServiceImpl implements PretService {
     @Autowired
     public void setRemboursementRepository(RemboursementRepository remboursementRepository) {
     	this.remboursementRepository = remboursementRepository;
+    }
+    
+    private ParametreRepository parametreRepository;
+    
+    @Autowired
+    public void setParametreRepository(ParametreRepository parametreRepository) {
+    	this.parametreRepository = parametreRepository;
     }
     
     @Override
@@ -160,16 +168,16 @@ public class PretServiceImpl implements PretService {
 			String raison = p.getRaison();
 			int valeur=0;
 			if(raison=="sante") {
-				valeur+=20;
+				valeur+=parametreRepository.findByPeriode(1).getValeurUrgenceSante();
 			}
 			if(raison=="alimentation") {
-				valeur+=15;
+				valeur+=parametreRepository.findByPeriode(1).getValeurUrgenceAlimentation();
 			}
 			if(raison=="loyer") {
-				valeur+=10;
+				valeur+=parametreRepository.findByPeriode(1).getValeurUrgenceLoyer();
 			}
 			if(raison=="transport") {
-				valeur+=5;
+				valeur+=parametreRepository.findByPeriode(1).getValeurUrgenceTransport();
 			}
 			return valeur;
 			
@@ -195,19 +203,16 @@ public class PretServiceImpl implements PretService {
 			//listes contient le montant total des prêts (non remboursés) à l'état terminé dont l'échéance de remboursement est au plutard dans 30 jours et dont l'état de paiement est "terminé"
 			//faire un select dans pretRepository: état=termine; etatRemboursement=false et échéance<30jours
 			if(montant>4000) {
-				valeur=10;
+				valeur=parametreRepository.findByPeriode(1).getValeurRemboursementProcheSup4000();
 			}
 			if(montant>3000 && montant<=4000) {
-				valeur=6;
+				valeur=parametreRepository.findByPeriode(1).getValeurRemboursementProcheEntre3000et4000();
 			}
-			if(montant>2000 && montant<=3000) {
-				valeur=3;
-			}
-			if(montant>1000 && montant<=2000) {
-				valeur=2;
+			if(montant>1000 && montant<=3000) {
+				valeur=parametreRepository.findByPeriode(1).getValeurRemboursementProcheEntre1000et3000();
 			}
 			if(montant<=1000) {
-				valeur=1;
+				valeur=parametreRepository.findByPeriode(1).getValeurRemboursementProcheInf1000();
 			}
 			return valeur;
 		}
@@ -217,13 +222,13 @@ public class PretServiceImpl implements PretService {
 			int valeur = 0;
 			double montant = p.getMontant();
 			if(montant<=500) {
-				valeur=20;
+				valeur=parametreRepository.findByPeriode(1).getValeurMontantPretInf500();
 			}
 			if(montant>500 && montant<=1000) {
-				valeur=10;
+				valeur=parametreRepository.findByPeriode(1).getValeurMontantPretEntre500et1000();
 			}
 			if(montant>1000) {
-				valeur=2;
+				valeur=parametreRepository.findByPeriode(1).getValeurMontantPretSup1000();
 			}
 			
 			return valeur;
@@ -239,13 +244,13 @@ public class PretServiceImpl implements PretService {
 			list = remboursementRepository.findByEtudiant(e);
 			int n = list.size();
 			if(n>2) {
-				valeur = 4;
+				valeur = parametreRepository.findByPeriode(1).getNombreRemboursementSup2();
 			}
 			if(n==1) {
-				valeur = 2;
+				valeur = parametreRepository.findByPeriode(1).getNombreRemboursementEq1();
 			}
 			else {
-				valeur = 1;
+				valeur = parametreRepository.findByPeriode(1).getNombreRemboursementElse();
 			}
 			
 			//Critère de l'ancienneté <=> au nombre total de cotisations
@@ -255,22 +260,22 @@ public class PretServiceImpl implements PretService {
 			cotisations = cotisationRepository.findByEtudiant(e);
 			int anciennete = lesCotisations.size();
 			if(anciennete>=4) {
-				valeur+=4;
+				valeur+=parametreRepository.findByPeriode(1).getAncienneteSup4();
 			}
 			if(anciennete==2 || anciennete==3) {
-				valeur+=2;
+				valeur+=parametreRepository.findByPeriode(1).getAncienneteEntre2Et3();
 			}
 			if(anciennete<2) {
-				valeur+=1;
+				valeur+=parametreRepository.findByPeriode(1).getAncienneteInf2();
 			}
 			
 			//Critère lié au genre
 			String genre = e.getSexe();
 			if(genre=="femme") {
-				valeur+=2;
+				valeur+=parametreRepository.findByPeriode(1).getGenreFemme();
 			}
 			if(genre=="homme") {
-				valeur+=1;
+				valeur+=parametreRepository.findByPeriode(1).getGenreHomme();
 			}
 			
 			//Nombre d'années passées au Maroc
@@ -280,15 +285,15 @@ public class PretServiceImpl implements PretService {
 			
 			int nombreAnnee = e.getNbAnneeMaroc();
 			if(nombreAnnee<=2) {
-				valeur+=2;
+				valeur+=parametreRepository.findByPeriode(1).getNombreAnneeMarocInf2();
 			}
 			else {
-				valeur+=0;
+				valeur+=parametreRepository.findByPeriode(1).getNombreRemboursementElse();
 			}
 			
 			//Fin d'année ou non
 			if(avantAvril(p.getDateDemande())) {
-				valeur+=1; 
+				valeur+=parametreRepository.findByPeriode(1).getIsAvantAvril(); 
 			}
 			
 			//Si l'éventuel dernier remboursement concernant l'étudiant est effectué avant échéance
@@ -302,7 +307,7 @@ public class PretServiceImpl implements PretService {
 				
 				boolean isIt = isDernierRemboursementAvantEcheanceByEtudiant(pret);
 				if(isIt) {
-					valeur+=4;
+					valeur+=parametreRepository.findByPeriode(1).getDernierRemboursementAvantEcheance();
 				}
 			}
 			
@@ -316,13 +321,13 @@ public class PretServiceImpl implements PretService {
 			long diff = diffJours(d);
 			
 			if(diff<=30) {
-				valeur = 10;
+				valeur = parametreRepository.findByPeriode(1).getValeurEcheanceInf30();
 			}
 			else if(diff>30 && diff<=60) {
-				valeur=2;
+				valeur=parametreRepository.findByPeriode(1).getValeurEcheanceEntre30Et60();
 			}
 			else {
-				valeur=0;
+				valeur=parametreRepository.findByPeriode(1).getValeurEcheanceElse();
 			}
 			
 			return valeur;
@@ -427,12 +432,12 @@ public class PretServiceImpl implements PretService {
 			long diff= diffJours(d);//qui retourne le nombre de jours entre la date d et aujourd'hui --->Calcule la différence entre deux dates
 			
 			if(diff>30) {
-				valeur+=5;
+				valeur+=parametreRepository.findByPeriode(1).getValeurDureeSup30();
 				Date today = new Date(diff);
 				p.setDateModification(today);
 			}
 			if(diff>15 && diff<=30) {
-				valeur+=2;
+				valeur+=parametreRepository.findByPeriode(1).getValeurDureeEntre15Et30();
 				Date today = new Date(diff);
 				p.setDateModification(today);
 			}

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.sutura.entities.Parametre;
-import in.sutura.repositories.ParametreRepository;
+import in.sutura.repositories.ParametreRepository; 
+
+
 
 @Service
 public class ParametreServiceImp implements ParametreService {
