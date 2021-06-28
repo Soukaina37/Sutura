@@ -23,9 +23,9 @@
 					<th>Date</th>
 					<th>Echeance</th>
 
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="pret : ${prets}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
@@ -39,8 +39,8 @@
 					<td th:text="${pret.echeance}">Echeance</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
-					<td><a th:href="${'/pret/edit/' + pret.id}">Edit</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
+					<td><a th:href="${'/pret/edit/' + pret.id}">Editer</a></td>
 					<td><a th:href="${'/pret/supprimer/' + pret.id}">Corbeille</a></td>
 				</tr>
 			</table>

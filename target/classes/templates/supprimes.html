@@ -23,9 +23,9 @@
 					<th>Date</th>
 					<th>Echeance</th>
 
-					<th>View</th>
-					<th>Restaurer</th>
-					<th>Supprimer</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 					
 				</tr>
 				<tr th:each="pret : ${supprimes}">
@@ -40,7 +40,7 @@
 					<td th:text="${pret.echeance}">Echeance</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
 					<td><a th:href="${'/pret/restaurer/' + pret.id}">Restaurer</a></td>
 					<td><a th:href="${'/pret/delete/' + pret.id}">Supprimer</a></td>
 					

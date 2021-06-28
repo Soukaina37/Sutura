@@ -151,7 +151,7 @@ public class DonController {
         	
         	//En commençant par le premier, on cherche si il peut être satisfait par la marge et ainsi de suite
         	for (Pret p : nouvelleListe) {
-        		if(p.getMontant()<marge) {
+        		if(p.getMontant()<=marge) {
         			//Passage à l'état élu
         			p.setEtat("elu");
         			pretService.update(p);

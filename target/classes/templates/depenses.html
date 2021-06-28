@@ -20,9 +20,9 @@
 					<th>Code Caisse</th>
 					<th>Description</th>
 					<th>Justificatif</th>
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="depense : ${depenses}">
 					<td th:text="${depense.id}"><a href="/depense/${depense.id}">Id</a></td>
@@ -33,9 +33,9 @@
 					<td th:text="${depense.description}">Description</td>
 					<td th:text="${depense.justificatif}">Justificatif</td>
 
-					<td><a th:href="${ '/depense/' + depense.id}">View</a></td>
-					<td><a th:href="${'/depense/edit/' + depense.id}">Edit</a></td>
-					<td><a th:href="${'/depense/delete/' + depense.id}">Delete</a></td>
+					<td><a th:href="${ '/depense/' + depense.id}">Voir</a></td>
+					<td><a th:href="${'/depense/edit/' + depense.id}">Editer</a></td>
+					<td><a th:href="${'/depense/delete/' + depense.id}">Supprimer</a></td>
 				</tr>
 			</table>
 

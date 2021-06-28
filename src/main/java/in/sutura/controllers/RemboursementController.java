@@ -173,12 +173,36 @@ public class RemboursementController {
         	
         }
         
-        //On met etat_remboursement du dernier prêt à true
-        //après faire une recherche concernant l'étudiant
         Pret pret = remboursement.getPret();
-        pret.setEtatRemboursement(true);
+        
+        if (remboursement.getMontant()==pret.getMontant()) {
+        	
+        	pret.setEtatRemboursement(true);
+        	pret.setMontantRemboursement(remboursement.getMontant());
+        }
+        else {
+        	
+        	if(remboursement.getMontant()<(pret.getMontant()-pret.getMontantRemboursement())){
+        		int nbTranches = remboursement.getNbDeTranches();
+            	nbTranches ++;
+            	remboursement.setNbDeTranches(nbTranches);
+            	double r = remboursement.getMontant();
+            	double rem = pret.getMontantRemboursement();
+            	rem += r;
+            	pret.setMontantRemboursement(rem);
+        	}
+        	else {
+        		int nbTranches = remboursement.getNbDeTranches();
+            	nbTranches ++;
+            	remboursement.setNbDeTranches(nbTranches);
+            	pret.setEtatRemboursement(true);
+        		
+        	}
+        	
+        }
 
         remboursementService.saveRemboursement(remboursement);
+        
         return "redirect:/remboursement/" + remboursement.getId();
     }
 

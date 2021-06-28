@@ -27,9 +27,9 @@
 					<th>Code Caisse</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Supprimer</th>
-					<th>Terminer</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="pret : ${elus}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
@@ -47,7 +47,7 @@
 					<td th:text="${pret.justificatif}">Justificatif</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
 					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
 					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
@@ -77,9 +77,9 @@
 					<th>Code Caisse</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Supprimer</th>
-					<th>Terminer</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="pret : ${prets}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
@@ -100,8 +100,8 @@
 					<td th:text="${pret.justificatif}">Justificatif</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
-					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
+					<td><a th:href="${'/pret/supprimer/' + pret.id}">Supprimer</a></td>
 					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>
@@ -129,9 +129,9 @@
 					<th>Code Caisse</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Supprimer</th>
-					<th>Terminer</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="pret : ${autres}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
@@ -151,8 +151,8 @@
 					<td th:text="${pret.justificatif}">Justificatif</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
-					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
+					<td><a th:href="${'/pret/supprimer/' + pret.id}">Supprimer</a></td>
 					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>
@@ -180,9 +180,9 @@
 					<th>Code Caisse</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Supprimer</th>
-					<th>Terminer</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="pret : ${termines}">
 					<td th:text="${pret.id}"><a href="/pret/${pret.id}">Id</a></td>
@@ -202,8 +202,8 @@
 					<td th:text="${pret.justificatif}">Justificatif</td>
 
 
-					<td><a th:href="${ '/pret/' + pret.id}">View</a></td>
-					<td><a th:href="${'/pret/supprimer/' + pret.id}">Delete</a></td>
+					<td><a th:href="${ '/pret/' + pret.id}">Voir</a></td>
+					<td><a th:href="${'/pret/supprimer/' + pret.id}">Supprimer</a></td>
 					<td><a th:href="${'/pret/terminer/' + pret.id}">Terminier</a></td>
 					
 				</tr>

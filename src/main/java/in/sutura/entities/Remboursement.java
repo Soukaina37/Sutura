@@ -18,7 +18,7 @@ public class Remboursement {
 	private int periode;//correspond à l'année
 	private String type;//remboursement en entier ou partiel
 	private boolean statut=false;//true si c'est traité et false par défaut
-    private int nbDeTranches;
+    private int nbDeTranches=0;
     
     @ManyToOne
 	@JoinColumn(name="CODE_ETU")

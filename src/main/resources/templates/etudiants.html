@@ -26,9 +26,9 @@
 					<th>Date d'inscription</th>
 					<th>Filière</th>
 					
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="etudiant : ${etudiants}">
 					<td th:text="${etudiant.id}">Id Etudiant</td>
@@ -44,9 +44,9 @@
 					<td th:text="${etudiant.dateInscription}">Date d'inscription</td>
 					<td th:text="${etudiant.filiere}">filiere</td>
 					
-					<td><a th:href="${ '/etudiant/' + etudiant.id}">View</a></td>
-					<td><a th:href="${'/etudiant/edit/' + etudiant.id}">Edit</a></td>
-					<td><a th:href="${'/etudiant/delete/' + etudiant.id}">Delete</a></td>
+					<td><a th:href="${ '/etudiant/' + etudiant.id}">Voir</a></td>
+					<td><a th:href="${'/etudiant/edit/' + etudiant.id}">Editer</a></td>
+					<td><a th:href="${'/etudiant/delete/' + etudiant.id}">Supprimer</a></td>
 				</tr>
 			</table>
 

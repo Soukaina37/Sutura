@@ -29,6 +29,7 @@ public class Pret {
 	private Date echeance;//date laquelle l'étudiant prévoit de rembourser
 	private Date dateModification = new java.sql.Date(System.currentTimeMillis());//initialisé dès la création de l'objet
 	private String commentaire;
+	private double montantRemboursement;
 	
 	@ManyToOne
 	@JoinColumn(name="CODE_ETU")
@@ -226,6 +227,15 @@ public class Pret {
 
 	public void setJustificatif(boolean justificatif) {
 		this.justificatif = justificatif;
+	}
+	
+
+	public double getMontantRemboursement() {
+		return montantRemboursement;
+	}
+
+	public void setMontantRemboursement(double montantRemboursement) {
+		this.montantRemboursement = montantRemboursement;
 	}
 
 	@Override

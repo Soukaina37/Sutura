@@ -14,27 +14,25 @@
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
-					<th>Statut</th>
 					<th>Montant Actuel</th>
 					<th>Montant Caisse</th>
 					<th>Seuil</th>
 					
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 					
 				</tr>
 				<tr th:each="caisse : ${caisses}">
 					<td th:text="${caisse.id}">Id</td>
-					<td th:text="${caisse.isFavorable}">Statut</td>
 					<td th:text="${caisse.montantActuel}">Montant Actuel</td>
 					<td th:text="${caisse.montantCaisse}">Montant Caisse</td>
 					<td th:text="${caisse.seuil}">Seuil</td>
 					
 	
-					<td><a th:href="${ '/caisse/' + caisse.id}">View</a></td>
-					<td><a th:href="${'/caisse/edit/' + caisse.id}">Edit</a></td>
-					<td><a th:href="${'/caisse/delete/' + caisse.id}">Delete</a></td>
+					<td><a th:href="${ '/caisse/' + caisse.id}">Voir</a></td>
+					<td><a th:href="${'/caisse/edit/' + caisse.id}">Editer</a></td>
+					<td><a th:href="${'/caisse/delete/' + caisse.id}">Supprimer</a></td>
 				</tr>
 			</table>
 

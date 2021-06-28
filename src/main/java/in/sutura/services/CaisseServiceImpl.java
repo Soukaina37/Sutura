@@ -75,8 +75,8 @@ public class CaisseServiceImpl implements CaisseService {
 			double montantCaisse = caisse.getMontantCaisse();
 			double chiffreAffaire = calcul_chiffreAffaire(caisse);
 			double seuil = caisse.getSeuil();
-			double rapport = montantCaisse/chiffreAffaire;
-			if (rapport>seuil) {
+			double rapport = (chiffreAffaire-montantCaisse)/chiffreAffaire;
+			if (rapport>=(1-seuil)) {
 				isFavorable = true;
 			}
 			return isFavorable;
@@ -93,7 +93,7 @@ public class CaisseServiceImpl implements CaisseService {
 			 */
 			double rapport = (chiffreAffaire-montantCaisse)/chiffreAffaire;
 			double seuil = caisse.getSeuil();
-			double marge = (seuil-rapport)*chiffreAffaire;
+			double marge = Math.round((seuil-rapport)*chiffreAffaire);
 			return marge;
 		}
 

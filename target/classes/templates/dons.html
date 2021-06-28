@@ -22,9 +22,9 @@
 					<th>Code Caisse</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="don : ${dons}">
 					<td th:text="${don.id}"><a href="/don/${don.id}">Id</a></td>
@@ -37,9 +37,9 @@
 					<td th:text="${don.justificatif}">Justificatif</td>
 
 
-					<td><a th:href="${ '/don/' + don.id}">View</a></td>
-					<td><a th:href="${'/don/edit/' + don.id}">Edit</a></td>
-					<td><a th:href="${'/don/delete/' + don.id}">Delete</a></td>
+					<td><a th:href="${ '/don/' + don.id}">Voir</a></td>
+					<td><a th:href="${'/don/edit/' + don.id}">Editer</a></td>
+					<td><a th:href="${'/don/delete/' + don.id}">supprimer</a></td>
 				</tr>
 			</table>
 

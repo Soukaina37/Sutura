@@ -20,13 +20,13 @@
 					<th>Montant</th>
 					<th>Expiration</th>
 					<th>Nom étudiant</th>
-					<th>ID Caisse</th>
+					<th>Caisse</th>
 					<th>Periode</th>
 					<th>Justificatif</th>
 
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="cotisation : ${cotisations}">
 					<td th:text="${cotisation.id}"><a
@@ -41,9 +41,9 @@
 					<td th:text="${cotisation.justificatif}">Justificatif</td>
 					
 					
-					<td><a th:href="${ '/cotisation/' + cotisation.id}">View</a></td>
-					<td><a th:href="${'/cotisation/edit/' + cotisation.id}">Edit</a></td>
-					<td><a th:href="${'/cotisation/delete/' + cotisation.id}">Delete</a></td>
+					<td><a th:href="${ '/cotisation/' + cotisation.id}">Voir</a></td>
+					<td><a th:href="${'/cotisation/edit/' + cotisation.id}">Editer</a></td>
+					<td><a th:href="${'/cotisation/delete/' + cotisation.id}">Supprimer</a></td>
 				</tr>
 			</table>
 

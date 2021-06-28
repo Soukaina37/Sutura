@@ -269,7 +269,7 @@ public class PretController {
     	Optional<Pret> nouveauPret = pretService.getPretById(id);
     	Pret leNouveauPret = nouveauPret.get();
     	//changement de l'état du pret en supprime
-    	leNouveauPret.setEtat("restaure");
+    	leNouveauPret.setEtat("bloque");
     	pretService.update(leNouveauPret);
         return "redirect:/pret/" + leNouveauPret.getId();
         

@@ -29,9 +29,9 @@
 					
 					
 
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr th:each="administrateur : ${administrateurs}">
 					<td th:text="${administrateur.nom}">Nom</td>
@@ -48,9 +48,9 @@
 					<td th:text="${administrateur.photo}">Photo</td>
 					<td th:text="${administrateur.description}">Description</td>
 	
-					<td><a th:href="${ '/administrateur/' + administrateur.id}">View</a></td>
-					<td><a th:href="${'/administrateur/edit/' + administrateur.id}">Edit</a></td>
-					<td><a th:href="${'/administrateur/delete/' + administrateur.id}">Delete</a></td>
+					<td><a th:href="${ '/administrateur/' + administrateur.id}">Voir</a></td>
+					<td><a th:href="${'/administrateur/edit/' + administrateur.id}">Editer</a></td>
+					<td><a th:href="${'/administrateur/delete/' + administrateur.id}">Supprimer</a></td>
 				</tr>
 			</table>
 

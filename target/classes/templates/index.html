@@ -15,8 +15,8 @@
 				<tr>
 					<th>Entite</th>
 					<th>Nombre</th>
-					<th>Voir</th>
-					<th>Creer</th>
+					<th>-</th>
+					<th>-</th>
 				</tr>
 				<tr>
 					<td>Cotisations</td>
@@ -67,8 +67,8 @@
 				<tr>
 					<th>Entite</th>
 					<th>Nombre</th>
-					<th>Voir</th>
-					<th>Creer</th>
+					<th>-</th>
+					<th>-</th>
 
 				</tr>
 				<tr>
@@ -87,36 +87,6 @@
 			</table>
 
 		</div>
-		<!--  
-		<div>
-			<h2>Equipe de gestion</h2>
-			<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>Poste</th>
-					<th>Photo</th>
-					<th>Description</th>
-
-					<th>View</th>
-					<th>Edit</th>
-					<th>Delete</th>
-				</tr>
-				<tr th:each="administrateur : ${administrateurs}">
-					<td th:text="${administrateur.id}"><a href="/administrateur/${administrateur.id}">Id</a></td>
-					<td th:text="${administrateur.poste}">Poste</td>
-					<td><img  width="100"
-						th:src="${administrateur.photo}" /></td>
-					<td th:text="${administrateur.description}">Description</td>
-
-
-
-					<td><a th:href="${ '/administrateur/' + administrateur.id}">View</a></td>
-					<td><a th:href="${'/administrateur/edit/' + administrateur.id}">Edit</a></td>
-					<td><a th:href="${'/administrateur/delete/' + administrateur.id}">Delete</a></td>
-				</tr>
-			</table>
-		</div>
-		-->
 	</div>
 </body>
 </html>
